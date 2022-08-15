@@ -1,0 +1,7 @@
+[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:93:12: patterns after a variable pattern cannot match (SLS 8.1.1)[0m
+[0m[[0m[33mwarn[0m] [0m[0m      case n => ASymbol(n)[0m
+[0m[[0m[33mwarn[0m] [0m[0m           ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:94:20: unreachable code due to variable pattern 'n' on line 93[0m
+[0m[[0m[33mwarn[0m] [0m[0m      case _ => err("unknown token")[0m
+[0m[[0m[33mwarn[0m] [0m[0m                   ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mtwo warnings found[0m

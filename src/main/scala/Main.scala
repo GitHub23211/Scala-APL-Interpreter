@@ -32,8 +32,9 @@ object Main {
       val line = readLine()   // no prompt is given
       if(line.size == 0) return;
       val tokens = matchPat(line)
-      println(tokens)
       val lineObjs = tokensToAObjs(tokens)
+      println(tokens)
+      tokens.map(x => strToAObj(x))
       lineObjs match
       {
       case Some(in) => print("input: ")

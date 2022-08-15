@@ -6,14 +6,10 @@
 [0m[[0m[0minfo[0m] [0m[0m[32m- should handle names[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should handle composite symbols[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mstrToAObj[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- should handle a name *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  ASymbol(ERROR unknown token) did not equal ASymbol(joe) (InterpretTests.scala:63)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- should handle a number *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  ASymbol(ERROR unknown token) did not equal ANumber(1914.0) (InterpretTests.scala:67)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- should handle a negative number *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  ASymbol(ERROR unknown token) did not equal ANumber(-53.0) (InterpretTests.scala:71)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- should handle an operator *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  ASymbol(ERROR unknown token) did not equal AOperator(+) (InterpretTests.scala:75)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should handle a name[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should handle a number[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should handle a negative number[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should handle an operator[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mtokensToAObjs[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m- should handle a single name *** FAILED ***[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  None did not equal Some(List(ASymbol(abc))) (InterpretTests.scala:79)[0m[0m

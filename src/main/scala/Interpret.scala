@@ -84,10 +84,15 @@ object Interpret {
                        "+", "-", "/", "*", ".", "~", "=", "<=",
                        "<", ">" , ">=", "!=", ",", "|", "rdc")
 
-  def strToAObj(s:String):AObject =
-  {
-    // TO DO: convert a string token to an AObject; or error
-    err("unknown token")
+  def strToAObj(s:String):AObject = {
+    val numPat = "(_?)([0-9]+)".r
+    val opPat = "([+-.*.~=(<=)<>(>=)(!=),|/]+)".r
+    s match {
+      case numPat(sign, num) => if (sign == "") ANumber(num.toDouble) else (ANumber(-(num.toDouble)))
+      case opPat(op) => AOperator(op)
+      case n => ASymbol(n)
+      case _ => err("unknown token")
+    }
   }
 
   def tokensToAObjs(a:List[String]):Option[List[AObject]] = None
