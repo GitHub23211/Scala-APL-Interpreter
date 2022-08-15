@@ -9,17 +9,12 @@
 [0m[[0m[0minfo[0m] [0m[0m[32m- should handle a name[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should handle a number[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should handle a negative number[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- should handle an operator *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  ASymbol(+) did not equal AOperator(+) (InterpretTests.scala:75)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should handle an operator[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mtokensToAObjs[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- should handle a single name *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  None did not equal Some(List(ASymbol(abc))) (InterpretTests.scala:79)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- should handle a single number *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  None did not equal Some(List(ANumber(42.0))) (InterpretTests.scala:83)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- should handle a simple expression *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  None did not equal Some(List(ASymbol(x), AOperator(+), ASymbol(y), Assign, ASymbol(z))) (InterpretTests.scala:87)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- should handle a more-complex expression *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  None did not equal Some(List(ASymbol(a), AOperator(-), LRBrac, ASymbol(z), AOperator(+), ANumber(1.0), RRBrac, AOperator(|), ANumber(7.0))) (InterpretTests.scala:93)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should handle a single name[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should handle a single number[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should handle a simple expression[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should handle a more-complex expression[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mSIMPLE EVAL:[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m- should add two numbers *** FAILED ***[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  TokensTests.this.same(Interpret.exec(scala.collection.immutable.List.apply[Product with Serializable with org.mq.interpret.Interpret.AObject](Interpret.ANumber.apply(4.0), Interpret.AOperator.apply("+"), Interpret.ANumber.apply(3.0))), Interpret.ANumber.apply(7.0)) was false (InterpretTests.scala:100)[0m[0m
@@ -62,11 +57,7 @@
 [0m[[0m[0minfo[0m] [0m[0m[31m- should handle complex expressions - primes *** FAILED ***[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  TokensTests.this.same(Interpret.exec(scala.collection.immutable.List.apply[Product with Serializable with org.mq.interpret.Interpret.AObject](Interpret.LRBrac, Interpret.AOperator.apply("~"), Interpret.ASymbol.apply("r"), Interpret.AOperator.apply("mem"), Interpret.ASymbol.apply("r"), Interpret.AOperator.apply("out"), Interpret.AOperator.apply("."), Interpret.AOperator.apply("mul"), Interpret.ASymbol.apply("r"), Interpret.RRBrac, Interpret.AOperator.apply("/"), Interpret.ASymbol.apply("r"), Interpret.Assign, Interpret.ANumber.apply(1.0), Interpret.AOperator.apply("drop"), Interpret.AOperator.apply("iota"), Interpret.ANumber.apply(20.0))), Interpret.AVector.apply(scala.Array.apply(2.0, 3.0, 5.0, 7.0, 11.0, 13.0, 17.0, 19.0))) was false (InterpretTests.scala:207)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mCUSTOM TEST CASES[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- should handle a Assign *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  ASymbol(<-) did not equal Assign (InterpretTests.scala:223)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- should handle a brackets *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  ASymbol(() did not equal RRBrac (InterpretTests.scala:227)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- should handle < separately *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  ASymbol(<) did not equal AOperator(<) (InterpretTests.scala:231)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- should handle - separately *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  ASymbol(-) did not equal AOperator(-) (InterpretTests.scala:235)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should handle <-[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should handle brackets[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should handle < separately[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should handle - separately[0m[0m

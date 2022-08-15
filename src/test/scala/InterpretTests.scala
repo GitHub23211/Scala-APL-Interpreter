@@ -219,12 +219,12 @@ class TokensTests extends FlatSpec with Matchers {
   //
   ///////////////////////////////////////////////////////////////////
 
-  "CUSTOM TEST CASES" should "handle a Assign" in {
+  "CUSTOM TEST CASES" should "handle <-" in {
     assert(strToAObj("<-") == Assign)
   }
 
-  it should "handle a brackets" in {
-    assert(strToAObj("(") == RRBrac)
+  it should "handle brackets" in {
+    assert(strToAObj("(") == LRBrac)
   }
 
   it should "handle < separately" in {
