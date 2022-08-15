@@ -1,2 +1,6 @@
 sbt
 run
+3 + 5
+run
+2 + 7 3 4
+run
