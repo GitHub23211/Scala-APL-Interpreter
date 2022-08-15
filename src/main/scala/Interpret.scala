@@ -86,7 +86,7 @@ object Interpret {
 
   def strToAObj(s:String):AObject = {
     val numPat = "(_?)([0-9]+)".r
-    val opPat = "([+-.*.~=(<=)<>(>=)(!=),|/]+)".r
+    val opPat = "([^<-][+-.*.~=(<=)<>(>=)(!=),|/]+)".r
     s match {
       case numPat(sign, num) => if (sign == "") ANumber(num.toDouble) else (ANumber(-(num.toDouble)))
       case opPat(op) => AOperator(op)
@@ -96,7 +96,15 @@ object Interpret {
   }
 
   def tokensToAObjs(a:List[String]):Option[List[AObject]] = None
-    // TO DO: convert a list of token strings to a list of AObject
+    a match {
+      case l => Some(l map (x => strToAObj(x) match {
+        case obj @ ANumber(_) => obj
+        case obj @ AOperator(_) => obj
+        case obj @ ASymbol(_) => obj
+      }))
+      case _ => None
+    }
+
 
   // for testing
   def lineToAObjs(line:String):List[AObject] =
