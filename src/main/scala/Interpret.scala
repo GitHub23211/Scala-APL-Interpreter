@@ -88,7 +88,7 @@ object Interpret {
     val numPat = "(_?)([0-9]+)".r
     val opPat = "([+-.*.~=(<=)<>(>=)(!=),|/]+)".r
     s match {
-      case numPat(sign, num) => if (sign == "") ANumber(num.toDouble) else (ANumber(-(num.toDouble)))
+      case numPat(sign, num) => if (sign == "") ANumber(num.toDouble) else if (sign == "+") ANumber(num.toDouble) else (ANumber(-(num.toDouble)))
       case opPat(op) => if (op == "<-") Assign else if (op == "(" ) LRBrac else if (op == ")") RRBrac else AOperator(op)
       case n => ASymbol(n)
       case _ => err("unknown token")
@@ -119,7 +119,7 @@ object Interpret {
 
   def setValue(varName:String, value:AObject):Unit =
   {
-    // TO DO: assign a value to a variable
+    
   }
 
   def getValue(varName:String):AObject =
