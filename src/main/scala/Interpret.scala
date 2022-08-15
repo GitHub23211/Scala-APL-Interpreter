@@ -74,7 +74,7 @@ object Interpret {
   def areEqual(d:Double, e:Double):Boolean =
             d == 0 && e == 0 || (d - e).abs < 0.0001 * (d.abs + e.abs)
 
-  val pat = "(\\+|-)?[a-z0-9+-.*.~=(<=)<>(>=)(!=),|/]+".r
+  val pat = "(\\+|_)?[a-z0-9+-.*.~=(<=)<>(>=)(!=),|/]+".r
 
   def matchPat(line:String):List[String] =
                               pat.findAllIn(line.toLowerCase).toList
