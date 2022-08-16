@@ -1,8 +1,8 @@
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(org.mq.interpret.TokensTests, org.scalatest.tools.Framework$$anon$1@78740bfd, false, [SuiteSelector])[0m
-[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 333 milliseconds.[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[36mTotal number of tests run: 35[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(org.mq.interpret.TokensTests, org.scalatest.tools.Framework$$anon$1@4116114b, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 392 milliseconds.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTotal number of tests run: 34[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[36mSuites: completed 1, aborted 0[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[36mTests: succeeded 17, failed 18, canceled 0, ignored 0, pending 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTests: succeeded 16, failed 18, canceled 0, ignored 0, pending 0[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m*** 18 TESTS FAILED ***[0m[0m
 [0m[[0m[31merror[0m] [0m[0mFailed tests:[0m
 [0m[[0m[31merror[0m] [0m[0m	org.mq.interpret.TokensTests[0m

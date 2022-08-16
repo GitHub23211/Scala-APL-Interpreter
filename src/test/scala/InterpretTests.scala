@@ -226,4 +226,8 @@ class TokensTests extends FlatSpec with Matchers {
   it should "return LRBrac for (" in {
     assert(strToAObj("(") == LRBrac)
   }
+
+  it should "return just the number even if there's a +" in {
+    assert(strToAObj("+34") == ANumber(34.0))
+  }
 }

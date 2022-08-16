@@ -57,7 +57,6 @@
 [0m[[0m[0minfo[0m] [0m[0m[31m- should handle complex expressions - primes *** FAILED ***[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  TokensTests.this.same(Interpret.exec(scala.collection.immutable.List.apply[Product with Serializable with org.mq.interpret.Interpret.AObject](Interpret.LRBrac, Interpret.AOperator.apply("~"), Interpret.ASymbol.apply("r"), Interpret.AOperator.apply("mem"), Interpret.ASymbol.apply("r"), Interpret.AOperator.apply("out"), Interpret.AOperator.apply("."), Interpret.AOperator.apply("mul"), Interpret.ASymbol.apply("r"), Interpret.RRBrac, Interpret.AOperator.apply("/"), Interpret.ASymbol.apply("r"), Interpret.Assign, Interpret.ANumber.apply(1.0), Interpret.AOperator.apply("drop"), Interpret.AOperator.apply("iota"), Interpret.ANumber.apply(20.0))), Interpret.AVector.apply(scala.Array.apply(2.0, 3.0, 5.0, 7.0, 11.0, 13.0, 17.0, 19.0))) was false (InterpretTests.scala:207)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mCUSTOM TEST CASES[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should handle <-[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should handle brackets[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should handle < separately[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should handle - separately[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return Assign for <-[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return LRBrac for ([0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return just the number even if there's a +[0m[0m

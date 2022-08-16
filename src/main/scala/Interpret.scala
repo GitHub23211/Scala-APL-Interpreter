@@ -85,11 +85,20 @@ object Interpret {
                        "<", ">" , ">=", "!=", ",", "|", "rdc")
 
   def strToAObj(s:String):AObject = {
-    val numPat = "(_?)([0-9]+)".r
-    val opPat = "([+-.*.~=(<=)<>(>=)(!=),|/]+)".r
+    val numPat = "(\\+|_?)([0-9]+)".r
+    val opPat = "([^a-zA-Z0-9]-*)".r
     s match {
-      case numPat(sign, num) => if (sign == "") ANumber(num.toDouble) else if (sign == "+") ANumber(num.toDouble) else (ANumber(-(num.toDouble)))
-      case opPat(op) => if (op == "<-") Assign else if (op == "(" ) LRBrac else if (op == ")") RRBrac else AOperator(op)
+      case numPat(sign, num) => sign match {
+                                      case "" => ANumber(num.toDouble)
+                                      case "+" => ANumber(num.toDouble)
+                                      case _ => ANumber(-(num.toDouble))
+                                    }
+      case opPat(op) => op match {
+                              case "(" => LRBrac
+                              case ")" => RRBrac
+                              case "<-" => Assign
+                              case _ => AOperator(op)
+                            }
       case n => ASymbol(n)
       case _ => err("unknown token")
     }
@@ -97,14 +106,7 @@ object Interpret {
 
   def tokensToAObjs(a:List[String]):Option[List[AObject]] =
     a match {
-      case l => Some(l map (x => strToAObj(x) match {
-        case obj @ ANumber(_) => obj
-        case obj @ AOperator(_) => obj
-        case obj @ Assign => obj
-        case obj @ RRBrac => obj
-        case obj @ LRBrac => obj
-        case obj @ ASymbol(_) => obj
-      }))
+      case l => Some(l map (x => strToAObj(x)))
       case _ => None
     }
 
@@ -117,15 +119,20 @@ object Interpret {
     case None    => List()
     }
 
+  var variable:(Option[String], Option[AObject]) = (None, None)
+
   def setValue(varName:String, value:AObject):Unit =
   {
-    
+    // TO DO: assign a value to a variable
+    variable = (Some(varName), Some(value))
   }
 
   def getValue(varName:String):AObject =
   {
-    // TO DO: get the value of a variable; or error if variable not defined
-    err("variable " + varName + " undefined")
+    variable match {
+      case (Some(n), Some(num)) if (n == varName) => num
+      case _ => err("variable " + varName + " undefined")
+    }
   }
 
   // determines whether a indicates the presence of a value
