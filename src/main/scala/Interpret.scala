@@ -85,21 +85,16 @@ object Interpret {
                        "<", ">" , ">=", "!=", ",", "|", "rdc")
 
   def strToAObj(s:String):AObject = {
-    val numPat = "(\\+|_?)([0-9]+)".r
-    val opPat = "([^a-zA-Z0-9]-*)".r
-    s match {
-      case numPat(sign, num) => sign match {
-                                      case "" => ANumber(num.toDouble)
-                                      case "+" => ANumber(num.toDouble)
-                                      case _ => ANumber(-(num.toDouble))
-                                    }
-      case opPat(op) => op match {
-                              case "(" => LRBrac
-                              case ")" => RRBrac
-                              case "<-" => Assign
-                              case _ => AOperator(op)
-                            }
-      case n => ASymbol(n)
+    val char = s.head
+    char match {
+      case '+' if s.tail != ""=> ANumber(s.tail.toDouble)
+      case '_' => ANumber(-(s.tail.toDouble))
+      case _ if char.isDigit => ANumber(s.toDouble)
+      case _ if operators.contains(s) => AOperator(s)
+      case '(' => LRBrac
+      case ')' => RRBrac
+      case '<' if s.tail == "-" => Assign
+      case n => ASymbol(s)
       case _ => err("unknown token")
     }
   }
@@ -179,6 +174,12 @@ object Interpret {
               evalWithRightArg(eval1(lineObjs.head), lineObjs.tail)
   }
 
+  def extractValue(obj:AObject):Double = 
+    obj match {
+      case ANumber(n) => n
+      case _ => 0.0
+    }
+
   // evaluate the rest of the line now that rightArg has been evaluated
   // line looks like:      ... rightArg
   // where    ...   is lineObjs (backwards)
@@ -189,11 +190,26 @@ object Interpret {
     // of the line; instead, return this error
     if(isError(rightArg)) return rightArg
 
+    println("Inside evalwithrightarg", rightArg, lineObjs)
+
     lineObjs.size match
     {
     case 0 => rightArg    // end of line
-    case 1 => err("TO DO")  // just one thing to the left of rightArg
-    case _ => err("TO DO")  // more than one thing to the left of rightArg
+    case 1 => lineObjs.head match {
+                              case AOperator(op) => op match {
+                                                        case "+" => ANumber(0 + extractValue(rightArg))
+                                                        case _ => err("Error occurred")
+                                                      }
+                              case ANumber(n) => lineObjs.head
+                              case _ => err("Error occurred")
+                            } 
+    case _ => lineObjs.head match {
+                          case AOperator(op) => op match {
+                                                    case "+" => ANumber(extractValue(rightArg) + extractValue(evalWithRightArg(lineObjs.head, lineObjs.tail)))
+                                                    case "mul" => ANumber(extractValue(rightArg) * extractValue(evalWithRightArg(lineObjs.head, lineObjs.tail)))
+                                                  }
+                          case ANumber(n) => ANumber(extractValue(evalWithRightArg(lineObjs.head, lineObjs.tail)))
+                      }
     }
   }
 

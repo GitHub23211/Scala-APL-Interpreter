@@ -230,4 +230,8 @@ class TokensTests extends FlatSpec with Matchers {
   it should "return just the number even if there's a +" in {
     assert(strToAObj("+34") == ANumber(34.0))
   }
+
+  it should "handle a string operators like mul" in {
+    assert(strToAObj("mul") == AOperator("mul"))
+  }
 }

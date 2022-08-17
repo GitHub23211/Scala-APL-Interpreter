@@ -33,6 +33,8 @@ object Main {
       if(line.size == 0) return;
       val tokens = matchPat(line)
       val lineObjs = tokensToAObjs(tokens)
+      val s = "+34"
+      println("head", s.head, "tail", s.tail)
       lineObjs match
       {
       case Some(in) => print("input: ")
