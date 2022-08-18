@@ -17,24 +17,13 @@
 [0m[[0m[0minfo[0m] [0m[0m[32m- should handle a more-complex expression[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mSIMPLE EVAL:[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should add two numbers[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- should mod two numbers *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  scala.MatchError: | (of class java.lang.String)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:207)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.eval(Interpret.scala:174)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.exec(Interpret.scala:151)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.TokensTests.$anonfun$new$15(InterpretTests.scala:105)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf(OutcomeOf.scala:85)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf$(OutcomeOf.scala:83)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:20)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.FlatSpecLike$$anon$5.apply(FlatSpecLike.scala:1682)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should mod two numbers[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m- should do iota number *** FAILED ***[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  TokensTests.this.same(Interpret.exec(scala.collection.immutable.List.apply[Product with Serializable with org.mq.interpret.Interpret.AObject](Interpret.AOperator.apply("iota"), Interpret.ANumber.apply(3.0))), Interpret.AVector.apply(scala.Array.apply(1.0, 2.0, 3.0))) was false (InterpretTests.scala:110)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m- should do membership *** FAILED ***[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  scala.MatchError: iota (of class java.lang.String)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:207)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.applyOperation(Interpret.scala:184)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:217)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.eval(Interpret.scala:174)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.exec(Interpret.scala:151)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.TokensTests.$anonfun$new$17(InterpretTests.scala:115)[0m[0m
@@ -43,11 +32,11 @@
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:20)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.FlatSpecLike$$anon$5.apply(FlatSpecLike.scala:1682)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m- should do monadic rho *** FAILED ***[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  scala.MatchError: iota (of class java.lang.String)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:207)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.applyOperation(Interpret.scala:184)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:217)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.eval(Interpret.scala:174)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.exec(Interpret.scala:151)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.TokensTests.$anonfun$new$18(InterpretTests.scala:121)[0m[0m
@@ -56,11 +45,11 @@
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:20)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.FlatSpecLike$$anon$5.apply(FlatSpecLike.scala:1682)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m- should do dyadic rho *** FAILED ***[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  scala.MatchError: iota (of class java.lang.String)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:207)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.applyOperation(Interpret.scala:184)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:217)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.eval(Interpret.scala:174)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.exec(Interpret.scala:151)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.TokensTests.$anonfun$new$19(InterpretTests.scala:126)[0m[0m
@@ -69,11 +58,11 @@
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:20)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.FlatSpecLike$$anon$5.apply(FlatSpecLike.scala:1682)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m- should do take *** FAILED ***[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  scala.MatchError: take (of class java.lang.String)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:207)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.applyOperation(Interpret.scala:184)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:217)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.eval(Interpret.scala:174)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.exec(Interpret.scala:151)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.TokensTests.$anonfun$new$20(InterpretTests.scala:132)[0m[0m
@@ -82,14 +71,14 @@
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:20)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.FlatSpecLike$$anon$5.apply(FlatSpecLike.scala:1682)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mMIXED SHAPE:[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m- should add number and vector *** FAILED ***[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  TokensTests.this.same(Interpret.exec(scala.collection.immutable.List.apply[Product with Serializable with org.mq.interpret.Interpret.AObject](Interpret.ANumber.apply(4.0), Interpret.AOperator.apply("+"), Interpret.AVector.apply(scala.Array.apply(3.0, 1.0, 4.0, 1.0, 5.0)))), Interpret.AVector.apply(scala.Array.apply(7.0, 5.0, 8.0, 5.0, 9.0))) was false (InterpretTests.scala:139)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m- should treat one-element vector as scalar *** FAILED ***[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  scala.MatchError: iota (of class java.lang.String)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:207)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.applyOperation(Interpret.scala:184)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:217)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.eval(Interpret.scala:174)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.exec(Interpret.scala:151)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.TokensTests.$anonfun$new$22(InterpretTests.scala:145)[0m[0m
@@ -98,11 +87,11 @@
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:20)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.FlatSpecLike$$anon$5.apply(FlatSpecLike.scala:1682)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m- should max vector and vector *** FAILED ***[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  scala.MatchError: ceil (of class java.lang.String)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:207)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.applyOperation(Interpret.scala:184)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:217)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.eval(Interpret.scala:174)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.exec(Interpret.scala:151)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.TokensTests.$anonfun$new$23(InterpretTests.scala:151)[0m[0m
@@ -111,12 +100,11 @@
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:20)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.FlatSpecLike$$anon$5.apply(FlatSpecLike.scala:1682)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mVARIABLES:[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m- should work *** FAILED ***[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  scala.MatchError: Assign (of class org.mq.interpret.Interpret$Assign$)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:206)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:216)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.eval(Interpret.scala:174)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.exec(Interpret.scala:151)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.TokensTests.$anonfun$new$24(InterpretTests.scala:158)[0m[0m
@@ -130,7 +118,8 @@
 [0m[[0m[0minfo[0m] [0m[0m[32mOPERATORS:[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m- should reduce a vector with + *** FAILED ***[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  scala.MatchError: / (of class java.lang.String)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:207)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.applyOperation(Interpret.scala:184)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:217)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.eval(Interpret.scala:174)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.exec(Interpret.scala:151)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.TokensTests.$anonfun$new$25(InterpretTests.scala:164)[0m[0m
@@ -139,11 +128,11 @@
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:20)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.FlatSpecLike$$anon$5.apply(FlatSpecLike.scala:1682)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m- should reduce a matrix with mul *** FAILED ***[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  scala.MatchError: / (of class java.lang.String)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:207)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.applyOperation(Interpret.scala:184)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:217)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.eval(Interpret.scala:174)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.exec(Interpret.scala:151)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.TokensTests.$anonfun$new$26(InterpretTests.scala:170)[0m[0m
@@ -152,12 +141,11 @@
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:20)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.FlatSpecLike$$anon$5.apply(FlatSpecLike.scala:1682)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m- should do outer product *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  scala.MatchError: . (of class java.lang.String)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:207)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:208)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  scala.MatchError: out (of class java.lang.String)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.applyOperation(Interpret.scala:184)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:217)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.eval(Interpret.scala:174)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.exec(Interpret.scala:151)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.TokensTests.$anonfun$new$27(InterpretTests.scala:177)[0m[0m
@@ -168,35 +156,14 @@
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:20)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m- should do inner product *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  scala.MatchError: . (of class java.lang.String)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:207)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:209)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.eval(Interpret.scala:174)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.exec(Interpret.scala:151)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.TokensTests.$anonfun$new$28(InterpretTests.scala:186)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf(OutcomeOf.scala:85)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf$(OutcomeOf.scala:83)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:20)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  TokensTests.this.same(Interpret.exec(scala.collection.immutable.List.apply[Product with Serializable with org.mq.interpret.Interpret.AObject](Interpret.AMatrix.apply(scala.Array.apply[Array[Double]](scala.Array.apply(2.0, 3.0), scala.Array.apply(4.0, 1.0))((ClassTag.apply[Array[Double]](scala.runtime.ScalaRunTime.arrayClass(classOf[scala.Double])): scala.reflect.ClassTag[Array[Double]]))), Interpret.AOperator.apply("+"), Interpret.AOperator.apply("."), Interpret.AOperator.apply("mul"), Interpret.AMatrix.apply(scala.Array.apply[Array[Double]](scala.Array.apply(1.0, 5.0), scala.Array.apply(2.0, 2.0))((ClassTag.apply[Array[Double]](scala.runtime.ScalaRunTime.arrayClass(classOf[scala.Double])): scala.reflect.ClassTag[Array[Double]]))))), Interpret.AMatrix.apply(scala.Array.apply[Array[Double]](scala.Array.apply(8.0, 16.0), scala.Array.apply(6.0, 22.0))((ClassTag.apply[Array[Double]](scala.runtime.ScalaRunTime.arrayClass(classOf[scala.Double])): scala.reflect.ClassTag[Array[Double]])))) was false (InterpretTests.scala:186)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mFULL EVAL:[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m- should handle bracketted expressions *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  scala.MatchError: RRBrac (of class org.mq.interpret.Interpret$RRBrac$)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:206)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:208)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.eval(Interpret.scala:174)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.exec(Interpret.scala:151)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.TokensTests.$anonfun$new$29(InterpretTests.scala:193)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf(OutcomeOf.scala:85)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf$(OutcomeOf.scala:83)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:20)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  TokensTests.this.same(Interpret.exec(scala.collection.immutable.List.apply[Product with Serializable with org.mq.interpret.Interpret.AObject](Interpret.LRBrac, Interpret.ANumber.apply(3.0), Interpret.AOperator.apply("mul"), Interpret.ANumber.apply(4.0), Interpret.RRBrac, Interpret.AOperator.apply("+"), Interpret.ANumber.apply(5.0))), Interpret.ANumber.apply(17.0)) was false (InterpretTests.scala:193)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m- should handle complex expressions *** FAILED ***[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  scala.MatchError: iota (of class java.lang.String)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:207)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.applyOperation(Interpret.scala:184)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:217)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.eval(Interpret.scala:174)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.exec(Interpret.scala:151)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.TokensTests.$anonfun$new$30(InterpretTests.scala:202)[0m[0m
@@ -205,11 +172,11 @@
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:20)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.FlatSpecLike$$anon$5.apply(FlatSpecLike.scala:1682)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m- should handle complex expressions - primes *** FAILED ***[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  scala.MatchError: iota (of class java.lang.String)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:207)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.applyOperation(Interpret.scala:184)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:217)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.eval(Interpret.scala:174)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.exec(Interpret.scala:151)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.TokensTests.$anonfun$new$31(InterpretTests.scala:212)[0m[0m
@@ -218,7 +185,6 @@
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:20)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.FlatSpecLike$$anon$5.apply(FlatSpecLike.scala:1682)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mCUSTOM TEST CASES[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should return Assign for <-[0m[0m

@@ -179,6 +179,16 @@ object Interpret {
       case ANumber(n) => n
       case _ => 0.0
     }
+  
+  def applyOperation(op:String, x:AObject, y:AObject): ANumber =
+    op match {
+        case "+" => ANumber(extractValue(x) + extractValue(y))
+        case "-" => ANumber(extractValue(x) - extractValue(y))
+        case "div" => ANumber(extractValue(x) / extractValue(y))
+        case "mul" => ANumber(extractValue(x) * extractValue(y))
+        case "|" => ANumber(extractValue(x) % extractValue(y))
+    }
+  
 
   // evaluate the rest of the line now that rightArg has been evaluated
   // line looks like:      ... rightArg
@@ -204,11 +214,8 @@ object Interpret {
                               case _ => err("Error occurred")
                             } 
     case _ => lineObjs.head match {
-                          case AOperator(op) => op match {
-                                                    case "+" => ANumber(extractValue(rightArg) + extractValue(evalWithRightArg(lineObjs.head, lineObjs.tail)))
-                                                    case "mul" => ANumber(extractValue(rightArg) * extractValue(evalWithRightArg(lineObjs.head, lineObjs.tail)))
-                                                  }
-                          case ANumber(n) => ANumber(extractValue(evalWithRightArg(lineObjs.head, lineObjs.tail)))
+                          case AOperator(op) => evalWithRightArg(applyOperation(op, rightArg, lineObjs.tail.head), lineObjs.tail.tail)
+                          case ANumber(n) => evalWithRightArg(rightArg, lineObjs.tail)
                       }
     }
   }
