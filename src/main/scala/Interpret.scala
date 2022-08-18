@@ -74,7 +74,7 @@ object Interpret {
   def areEqual(d:Double, e:Double):Boolean =
             d == 0 && e == 0 || (d - e).abs < 0.0001 * (d.abs + e.abs)
 
-  val pat = "(\\+|_)?[a-z0-9+-.*.~=(<=)<>(>=)(!=),|/]+".r
+  val pat = "[a-zA-Z]+|(_)?[0-9]+|[^a-zA-Z0-9 ]+".r
 
   def matchPat(line:String):List[String] =
                               pat.findAllIn(line.toLowerCase).toList
@@ -87,7 +87,7 @@ object Interpret {
   def strToAObj(s:String):AObject = {
     val char = s.head
     char match {
-      case '+' if s.tail != ""=> ANumber(s.tail.toDouble)
+      case '+' if s.tail != "" => ANumber(s.tail.toDouble)
       case '_' => ANumber(-(s.tail.toDouble))
       case _ if char.isDigit => ANumber(s.toDouble)
       case _ if operators.contains(s) => AOperator(s)

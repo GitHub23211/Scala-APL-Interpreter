@@ -234,4 +234,16 @@ class TokensTests extends FlatSpec with Matchers {
   it should "handle a string operators like mul" in {
     assert(strToAObj("mul") == AOperator("mul"))
   }
+
+  it should "interpret operations without spaces (mul)" in {
+    assert(matchPat("2mul3") == List("2", "mul", "3"))
+  }
+
+  it should "interpret operations without spaces (+)" in {
+    assert(matchPat("2+3") == List("2", "+", "3"))
+  }
+
+  it should "interpret operations without spaces (Assign)" in {
+    assert(matchPat("2<-3") == List("2", "<-", "3"))
+  }
 }

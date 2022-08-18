@@ -191,3 +191,6 @@
 [0m[[0m[0minfo[0m] [0m[0m[32m- should return LRBrac for ([0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should return just the number even if there's a +[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should handle a string operators like mul[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should interpret operations without spaces (mul)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should interpret operations without spaces (+)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should interpret operations without spaces (Assign)[0m[0m
