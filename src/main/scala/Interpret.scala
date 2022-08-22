@@ -174,19 +174,45 @@ object Interpret {
               evalWithRightArg(eval1(lineObjs.head), lineObjs.tail)
   }
 
-  def extractValue(obj:AObject):Double = 
+  def extractNumber(obj:AObject):Double = 
     obj match {
       case ANumber(n) => n
       case _ => 0.0
     }
+
+  def extractVector(obj:AObject):Array[Double] = 
+    obj match {
+      case AVector(v) => v
+      case _ => Array(0.0)
+    }
   
-  def applyOperation(op:String, x:AObject, y:AObject): ANumber =
+  def applyDyadicOperation(op:String, x:AObject, y:AObject): ANumber =
     op match {
-        case "+" => ANumber(extractValue(x) + extractValue(y))
-        case "-" => ANumber(extractValue(x) - extractValue(y))
-        case "div" => ANumber(extractValue(x) / extractValue(y))
-        case "mul" => ANumber(extractValue(x) * extractValue(y))
-        case "|" => ANumber(extractValue(x) % extractValue(y))
+        case "+" => ANumber(extractNumber(x) + extractNumber(y))
+        case "-" => ANumber(extractNumber(x) - extractNumber(y))
+        case "div" => ANumber(extractNumber(x) / extractNumber(y))
+        case "mul" => ANumber(extractNumber(x) * extractNumber(y))
+        case "|" => ANumber(extractNumber(x) % extractNumber(y))
+        case "mem" => if (extractVector(y).contains(extractNumber(x))) ANumber(1) else ANumber(0)
+        case _ => err("Error in applyDyadicOperation occurred")
+    }
+  
+  def applyMonadicOperation(op:String, x:AObject): AObject =
+    op match {
+        case "+" => ANumber(0 + extractNumber(x))
+        case "-" => ANumber(0 - extractNumber(x))
+        case "div" => ANumber(1 / extractNumber(x))
+        case "mul" => extractNumber(x) match {
+                                        case n if(n > 0) => ANumber(1)
+                                        case n if(n < 0) => ANumber(-1)
+                                        case _ => ANumber(0)
+                                      }
+        case "|" => extractNumber(x) match {
+                                      case n if(n < 0) => ANumber(-(n))
+                                      case obj @ _ => ANumber(obj)
+                                    }
+        case "iota" => AVector((1.0 to extractNumber(x) by 1.0).toArray)
+        case _ => err("Error in applyMonadicOperation occurred")
     }
   
 
@@ -200,23 +226,23 @@ object Interpret {
     // of the line; instead, return this error
     if(isError(rightArg)) return rightArg
 
-    println("Inside evalwithrightarg", rightArg, lineObjs)
-
     lineObjs.size match
     {
     case 0 => rightArg    // end of line
     case 1 => lineObjs.head match {
-                              case AOperator(op) => op match {
-                                                        case "+" => ANumber(0 + extractValue(rightArg))
-                                                        case _ => err("Error occurred")
-                                                      }
+                              case AOperator(op) => applyMonadicOperation(op, rightArg)
                               case ANumber(n) => lineObjs.head
                               case _ => err("Error occurred")
                             } 
     case _ => lineObjs.head match {
-                          case AOperator(op) => evalWithRightArg(applyOperation(op, rightArg, lineObjs.tail.head), lineObjs.tail.tail)
+                          case AOperator(op) => lineObjs.tail.head match {
+                                                                case ANumber(_) => evalWithRightArg(applyDyadicOperation(op, rightArg, lineObjs.tail.head), lineObjs.tail.tail)
+                                                                case AOperator(_) => evalWithRightArg(applyMonadicOperation(op, rightArg), lineObjs.tail)
+                                                                case _ => err("Error case _ => lineObjs.head match, case AOperator(op) => lineObjs.tail.head match occurred")
+                                                              }
                           case ANumber(n) => evalWithRightArg(rightArg, lineObjs.tail)
-                      }
+                          case _ => err("Error evalWithRightArg, case _ => lineObjs.head match, case ANumber(n) occurred")
+                        }
     }
   }
 

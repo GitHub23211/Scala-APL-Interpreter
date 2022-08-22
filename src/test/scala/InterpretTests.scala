@@ -25,6 +25,9 @@ class TokensTests extends FlatSpec with Matchers {
 
   def same(a:AObject, b:AObject):Boolean = (a,b) match
   {
+  case (Assign, Assign) | (LRBrac, LRBrac) | (RRBrac, RRBrac) => true
+  case (ASymbol(f),ASymbol(g)) => f == g
+  case (AOperator(f),AOperator(g)) => f == g
   case (ANumber(d),ANumber(e)) => areEqual(d, e)
   case (AVector(u),AVector(v)) if u.size == v.size =>
                                     u.zip(v) forall (t => areEqual(t._1, t._2))
@@ -32,6 +35,16 @@ class TokensTests extends FlatSpec with Matchers {
                                     same(AVector(m.flatten), AVector(n.flatten))
   case _   => false
   }
+
+  def sameTokensToAObjs(s:List[String], r:Option[List[AObject]]):Boolean =
+    (tokensToAObjs(s), r) match
+    {
+    case (None, None)          => true
+    case (None, _) | (_, None) => false
+    case (Some(a), Some(b)) if a.size == b.size
+                               => (a zip b) forall (z => same(z._1, z._2))
+    case _                     => false  // different length lists
+    }
 
   def isError(a:AObject):Boolean = a match
   {
@@ -245,5 +258,10 @@ class TokensTests extends FlatSpec with Matchers {
 
   it should "interpret operations without spaces (Assign)" in {
     assert(matchPat("2<-3") == List("2", "<-", "3"))
+  }
+
+  it should "handle monadic operations (+)" in {
+    assert(same(exec(List(AOperator("+"), ANumber(4.0))),
+                ANumber(4.0)))
   }
 }
