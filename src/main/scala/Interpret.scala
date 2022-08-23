@@ -186,7 +186,7 @@ object Interpret {
       case _ => Array(0.0)
     }
   
-  def applyDyadicOperation(op:String, x:AObject, y:AObject): ANumber =
+  def applyDyadicOperation(op:String, x:AObject, y:AObject): AObject =
     op match {
         case "+" => ANumber(extractNumber(x) + extractNumber(y))
         case "-" => ANumber(extractNumber(x) - extractNumber(y))
@@ -194,6 +194,23 @@ object Interpret {
         case "mul" => ANumber(extractNumber(x) * extractNumber(y))
         case "|" => ANumber(extractNumber(x) % extractNumber(y))
         case "mem" => if (extractVector(y).contains(extractNumber(x))) ANumber(1) else ANumber(0)
+        case "rho" => y match {
+                              case ANumber(ny) =>  x match {
+                                                      case ANumber(nx) => AVector((0 until getInt(ny)).map(x => nx).toArray)
+                                                      case AVector(vx) => AVector((0 until getInt(ny)).map(x => vx(x % vx.length)).toArray)
+                                                    }
+                              case AVector(vy) => x match {
+                                                      case ANumber(xn) => AMatrix((0 until getInt(vy(0))).map(x => (0 until getInt(vy(1))).map(y => xn).toArray).toArray)
+                                                      case AVector(vx) => AMatrix((0 until getInt(vy(0))).map(x => ((getInt(vy(1)) * x) until (getInt(vy(1)) * (x + 1))).map(y => vx(y % vx.length)).toArray).toArray)
+                                                    }
+                            }
+        case "take" => {
+          val vx = extractVector(x)
+          extractNumber(y) match {
+            case num if(num < 0) => AVector(((vx.length - 1) until (vx.length - 1 - getInt(num)) by -1).map(a => vx(a)).toArray)
+            case num if(num > 0) => AVector((0 until getInt(num)).map(a => vx(a)).toArray)
+          }
+        }
         case _ => err("Error in applyDyadicOperation occurred")
     }
   
@@ -212,6 +229,11 @@ object Interpret {
                                       case obj @ _ => ANumber(obj)
                                     }
         case "iota" => AVector((1.0 to extractNumber(x) by 1.0).toArray)
+        case "rho" => x match {
+                              case ANumber(_) => AVector(Array(0.0))
+                              case AVector(v) => AVector(Array(v.length))
+                              case AMatrix(m) => AVector(Array(m.length, m.head.length))
+                            }
         case _ => err("Error in applyMonadicOperation occurred")
     }
   
@@ -238,6 +260,7 @@ object Interpret {
                           case AOperator(op) => lineObjs.tail.head match {
                                                                 case ANumber(_) => evalWithRightArg(applyDyadicOperation(op, rightArg, lineObjs.tail.head), lineObjs.tail.tail)
                                                                 case AOperator(_) => evalWithRightArg(applyMonadicOperation(op, rightArg), lineObjs.tail)
+                                                                case AVector(_) => evalWithRightArg(applyDyadicOperation(op, rightArg, lineObjs.tail.head), lineObjs.tail.tail)
                                                                 case _ => err("Error case _ => lineObjs.head match, case AOperator(op) => lineObjs.tail.head match occurred")
                                                               }
                           case ANumber(n) => evalWithRightArg(rightArg, lineObjs.tail)

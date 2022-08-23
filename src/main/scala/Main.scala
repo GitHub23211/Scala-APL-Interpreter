@@ -33,8 +33,20 @@ object Main {
       if(line.size == 0) return;
       val tokens = matchPat(line)
       val lineObjs = tokensToAObjs(tokens)
-      val s = "+34"
-      println("head", s.head, "tail", s.tail)
+
+      var a = 7
+      val c = Array(2, 2)
+      val b = (0 until c(0)).map(x => (0 until c(1)).map(y => 4).toArray).toArray
+
+      def printMatrix(x: AObject): Unit = x match {
+        case AMatrix(m) => {println(m); m.map(x => println(x.mkString(",")))}
+      }
+
+      printMatrix(applyDyadicOperation("rho", AVector(Array(4.0, 7.0, 1.0, 9.0)), AVector(Array(2.0, 3.0))))
+
+
+
+
       lineObjs match
       {
       case Some(in) => print("input: ")

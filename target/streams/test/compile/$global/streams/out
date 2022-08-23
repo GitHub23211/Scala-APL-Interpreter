@@ -1,7 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\test\scala\InterpretTests.scala:230:6: value sohuld is not a member of TokensTests.this.ItWord[0m
-[0m[[0m[31merror[0m] [0m[0m  it sohuld "handle < separately" in {[0m
-[0m[[0m[31merror[0m] [0m[0m     ^[0m
-[0m[[0m[31merror[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\test\scala\InterpretTests.scala:234:6: value sohuld is not a member of TokensTests.this.ItWord[0m
-[0m[[0m[31merror[0m] [0m[0m  it sohuld "handle - separately" in {[0m
-[0m[[0m[31merror[0m] [0m[0m     ^[0m
-[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
+[0m[[0m[31merror[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\test\scala\InterpretTests.scala:275:31: not found: value Arrayy[0m
+[0m[[0m[31merror[0m] [0m[0m                AMatrix(Array(Arrayy(7.0, 7.0), Array(7.0, 7.0)))))[0m
+[0m[[0m[31merror[0m] [0m[0m                              ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m

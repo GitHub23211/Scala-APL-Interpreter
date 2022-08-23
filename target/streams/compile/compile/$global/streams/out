@@ -10,11 +10,23 @@
 [0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:105:17: unreachable code due to variable pattern 'l' on line 104[0m
 [0m[[0m[33mwarn[0m] [0m[0m      case _ => None[0m
 [0m[[0m[33mwarn[0m] [0m[0m                ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:236:63: match may not be exhaustive.[0m
-[0m[[0m[33mwarn[0m] [0m[0mIt would fail on the following inputs: AMatrix(_), ASymbol(_), AVector(_), Assign, LRBrac, RRBrac[0m
-[0m[[0m[33mwarn[0m] [0m[0m                          case AOperator(op) => lineObjs.tail.head match {[0m
-[0m[[0m[33mwarn[0m] [0m[0m                                                              ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:213:37: method to in trait FractionalProxy is deprecated (since 2.12.6): use BigDecimal range instead[0m
+[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:198:52: match may not be exhaustive.[0m
+[0m[[0m[33mwarn[0m] [0m[0mIt would fail on the following inputs: AMatrix(_), AOperator(_), ASymbol(_), Assign, LRBrac, RRBrac[0m
+[0m[[0m[33mwarn[0m] [0m[0m                              case ANumber(ny) =>  x match {[0m
+[0m[[0m[33mwarn[0m] [0m[0m                                                   ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:202:51: match may not be exhaustive.[0m
+[0m[[0m[33mwarn[0m] [0m[0mIt would fail on the following inputs: AMatrix(_), AOperator(_), ASymbol(_), Assign, LRBrac, RRBrac[0m
+[0m[[0m[33mwarn[0m] [0m[0m                              case AVector(vy) => x match {[0m
+[0m[[0m[33mwarn[0m] [0m[0m                                                  ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:197:23: match may not be exhaustive.[0m
+[0m[[0m[33mwarn[0m] [0m[0mIt would fail on the following inputs: AMatrix(_), AOperator(_), ASymbol(_), Assign, LRBrac, RRBrac[0m
+[0m[[0m[33mwarn[0m] [0m[0m        case "rho" => y match {[0m
+[0m[[0m[33mwarn[0m] [0m[0m                      ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:232:23: match may not be exhaustive.[0m
+[0m[[0m[33mwarn[0m] [0m[0mIt would fail on the following inputs: AOperator(_), ASymbol(_), Assign, LRBrac, RRBrac[0m
+[0m[[0m[33mwarn[0m] [0m[0m        case "rho" => x match {[0m
+[0m[[0m[33mwarn[0m] [0m[0m                      ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:231:37: method to in trait FractionalProxy is deprecated (since 2.12.6): use BigDecimal range instead[0m
 [0m[[0m[33mwarn[0m] [0m[0m        case "iota" => AVector((1.0 to extractNumber(x) by 1.0).toArray)[0m
 [0m[[0m[33mwarn[0m] [0m[0m                                    ^[0m
-[0m[[0m[33mwarn[0m] [0m[0m6 warnings found[0m
+[0m[[0m[33mwarn[0m] [0m[0m9 warnings found[0m

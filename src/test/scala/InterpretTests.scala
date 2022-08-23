@@ -264,4 +264,19 @@ class TokensTests extends FlatSpec with Matchers {
     assert(same(exec(List(AOperator("+"), ANumber(4.0))),
                 ANumber(4.0)))
   }
+
+  it should "Dyadic rho, Number rho number" in {
+    assert(same(exec(List(ANumber(4.0), AOperator("rho"), ANumber(7.0))),
+                AVector(Array(7.0, 7.0, 7.0, 7.0))))
+  }
+
+  it should "Dyadic rho, Number rho Vector" in {
+    assert(same(exec(List(ANumber(4.0), AOperator("rho"), AVector(Array(7.0, 8.0, 3.0)))),
+                AVector(Array(7.0, 8.0, 3.0, 7.0))))
+  }
+
+  it should "Dyadic rho, Vector rho Number" in {
+    assert(same(exec(List(AVector(Array(2.0, 2.0)), AOperator("rho"), ANumber(7.0))),
+                AMatrix(Array(Array(7.0, 7.0), Array(7.0, 7.0)))))
+  }
 }
