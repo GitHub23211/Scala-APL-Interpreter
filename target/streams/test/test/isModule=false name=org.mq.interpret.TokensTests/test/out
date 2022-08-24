@@ -60,7 +60,7 @@
 [0m[[0m[0minfo[0m] [0m[0m[32m- should handle monadic operations (-) for ANumber[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should handle monadic operations (-) for AVector[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should handle monadic operations (-) for AMatrix[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mDyadic FUNCTION TEST CASES[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mDYADIC FUNCTION TEST CASES[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should handle summing two matricies[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should Number rho number[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should Number rho Vector[0m[0m

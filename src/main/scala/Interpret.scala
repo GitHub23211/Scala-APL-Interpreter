@@ -256,14 +256,14 @@ object Interpret {
   
   def applyDyadicOperation(op:String, x:AObject, y:AObject): AObject =
     op match {
-        case "+" => testDyadic(dyadicPlus, x, y)
-        case "-" => testDyadic(dyadicMinus, x, y)
-        case "div" => testDyadic(dyadicDiv, x, y)
-        case "mul" => testDyadic(dyadicMul, x, y)
-        case "|" => testDyadic(dyadicMod, x, y)
+        case "+" => dyadicOP(dyadicPlus, x, y)
+        case "-" => dyadicOP(dyadicMinus, x, y)
+        case "div" => dyadicOP(dyadicDiv, x, y)
+        case "mul" => dyadicOP(dyadicMul, x, y)
+        case "|" => dyadicOP(dyadicMod, x, y)
         case "mem" => dyadicMem(x, y)
-        case "flr" => testDyadic(dyadicFlr, x, y)
-        case "ceil" => testDyadic(dyadicCeil, x, y)
+        case "flr" => dyadicOP(dyadicFlr, x, y)
+        case "ceil" => dyadicOP(dyadicCeil, x, y)
         case "rho" => dyadicRho(x, y)
         case "take" => dyadicTake(x, y)
         case "drop" => dyadicDrop(x, y)
@@ -272,30 +272,30 @@ object Interpret {
   
   def applyMonadicOperation(op:String, x:AObject): AObject =
     op match {
-        case "+" => testMonadic(monadicPlus, x)
-        case "-" => testMonadic(monadicMinus, x)
-        case "div" => testMonadic(monadicDiv, x)
-        case "mul" => testMonadic(monadicMul, x)
-        case "|" => testMonadic(monadicMod, x)
+        case "+" => monadicOp(monadicPlus, x)
+        case "-" => monadicOp(monadicMinus, x)
+        case "div" => monadicOp(monadicDiv, x)
+        case "mul" => monadicOp(monadicMul, x)
+        case "|" => monadicOp(monadicMod, x)
         case "iota" => monadicIota(x)
         case "rho" => monadicRho(x)
-        case "flr" => testMonadic(monadicFlr, x)
-        case "ceil" => testMonadic(monadicCeil, x)
-        case "~" => testMonadic(logicalNOT, x)
+        case "flr" => monadicOp(monadicFlr, x)
+        case "ceil" => monadicOp(monadicCeil, x)
+        case "~" => monadicOp(logicalNOT, x)
         case _ => err("Error in applyMonadicOperation occurred")
     }
 
-  def testMonadic(operation:Double => Double, a:AObject): AObject = {
+  def monadicOp(operation:Double => Double, a:AObject): AObject = {
     a match {
       case ANumber(n) => ANumber(operation(n))
       case AVector(v) if(v.length == 1) => ANumber(operation(v.head))
       case AVector(v) => AVector(v.map(x => operation(x)).toArray)
       case AMatrix(m) => AMatrix(m.map(x => x.map(y => operation(y)).toArray).toArray)
-      case _ => err("Error in testMonadic occurred")
+      case _ => err("Error in monadicOp occurred")
     }
   }
 
-  def testDyadic(operation:(Double, Double) => Double, a:AObject, b:AObject): AObject = {
+  def dyadicOP(operation:(Double, Double) => Double, a:AObject, b:AObject): AObject = {
     (a, b) match {
       case (ANumber(x), ANumber(y)) => ANumber(operation(x, y))
       case (ANumber(n), AVector(v)) if(v.length == 1) => ANumber(operation(n, v.head))
@@ -309,7 +309,7 @@ object Interpret {
       case (AVector(v1), AVector(v2)) if(v1.length == v2.length) => AVector((0 until v1.length).map(i => operation(v1(i), v2(i))).toArray)
       case (AMatrix(m1), AMatrix(m2)) if(m1.length == m2.length & m1.head.length == m2.head.length) => 
             AMatrix((0 until m1.length).map(i => (0 until m1(i).length).map(j => operation(m1(i)(j), m2(i)(j))).toArray).toArray)
-      case _ => err("Error in testDyadic occurred")
+      case _ => err("Error in dyadicOP occurred")
     }
   }
 
@@ -377,15 +377,5 @@ object Interpret {
       case (AVector(v), ANumber(n)) => AVector((0 until getInt(n)).map(x => v(x % v.length)).toArray)
       case (AVector(v1), AVector(v2)) => AMatrix((0 until getInt(v2(0))).map(x => ((getInt(v2(1)) * x) until (getInt(v2(1)) * (x + 1))).map(y => v1(y % v1.length)).toArray).toArray)
     }
-    // y match {
-    //                           case ANumber(ny) =>  x match {
-    //                                                   case ANumber(nx) => AVector((0 until getInt(ny)).map(x => nx).toArray)
-    //                                                   case AVector(vx) => AVector((0 until getInt(ny)).map(x => vx(x % vx.length)).toArray)
-    //                                                 }
-    //                           case AVector(vy) => x match {
-    //                                                   case ANumber(xn) => AMatrix((0 until getInt(vy(0))).map(x => (0 until getInt(vy(1))).map(y => xn).toArray).toArray)
-    //                                                   case AVector(vx) => AMatrix((0 until getInt(vy(0))).map(x => ((getInt(vy(1)) * x) until (getInt(vy(1)) * (x + 1))).map(y => vx(y % vx.length)).toArray).toArray)
-    //                                                 }
-    //                         }
   }
 }
