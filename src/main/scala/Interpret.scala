@@ -240,19 +240,6 @@ object Interpret {
   // Functions that deal with applying each operation for a given combination of Scalars, Vectors and/or Matrices
   //
   ///////////////////////////////////////////////////////////////////
-
-    def extractNumber(obj:AObject):Double = 
-    obj match {
-      case ANumber(n) => n
-      case AVector(n) if(n.length == 1) => n.head
-      case _ => 0.0
-    }
-
-  def extractVector(obj:AObject):Array[Double] = 
-    obj match {
-      case AVector(v) => v
-      case _ => Array(0.0)
-    }
   
   def applyDyadicOperation(op:String, x:AObject, y:AObject): AObject =
     op match {
@@ -261,9 +248,9 @@ object Interpret {
         case "div" => dyadicOP(dyadicDiv, x, y)
         case "mul" => dyadicOP(dyadicMul, x, y)
         case "|" => dyadicOP(dyadicMod, x, y)
-        case "mem" => dyadicMem(x, y)
         case "flr" => dyadicOP(dyadicFlr, x, y)
         case "ceil" => dyadicOP(dyadicCeil, x, y)
+        case "mem" => dyadicMem(x, y)
         case "rho" => dyadicRho(x, y)
         case "take" => dyadicTake(x, y)
         case "drop" => dyadicDrop(x, y)
@@ -277,11 +264,11 @@ object Interpret {
         case "div" => monadicOp(monadicDiv, x)
         case "mul" => monadicOp(monadicMul, x)
         case "|" => monadicOp(monadicMod, x)
-        case "iota" => monadicIota(x)
-        case "rho" => monadicRho(x)
         case "flr" => monadicOp(monadicFlr, x)
         case "ceil" => monadicOp(monadicCeil, x)
         case "~" => monadicOp(logicalNOT, x)
+        case "iota" => monadicIota(x)
+        case "rho" => monadicRho(x)
         case _ => err("Error in applyMonadicOperation occurred")
     }
 
@@ -341,6 +328,14 @@ object Interpret {
     case AVector(v) if(v.length == 1) => AVector((1.0 to v.head by 1.0).toArray)
   }
 
+  def monadicRho(a:AObject):AVector = {
+    a match {
+      case ANumber(_) => AVector(Array(0.0))
+      case AVector(v) => AVector(Array(v.length))
+      case AMatrix(m) => AVector(Array(m.length, m.head.length))
+    }
+  }
+
   def dyadicMem(a:AObject, b:AObject) = {
     (a, b) match {
       case (ANumber(n), AVector(v)) => if (v.contains(n)) ANumber(1) else ANumber(0)
@@ -359,14 +354,6 @@ object Interpret {
     (a, b) match {
       case (AVector(v), ANumber(n)) if(n < 0) => AVector((0 until (v.length + getInt(n))).map(a => v(a)).toArray)
       case (AVector(v), ANumber(n)) if(n > 0) => AVector((getInt(n) until v.length).map(a => v(a)).toArray)
-    }
-  }
-
-  def monadicRho(a:AObject):AVector = {
-    a match {
-      case ANumber(_) => AVector(Array(0.0))
-      case AVector(v) => AVector(Array(v.length))
-      case AMatrix(m) => AVector(Array(m.length, m.head.length))
     }
   }
 
