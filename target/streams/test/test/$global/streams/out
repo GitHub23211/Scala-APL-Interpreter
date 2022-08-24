@@ -1,5 +1,5 @@
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(org.mq.interpret.TokensTests, org.scalatest.tools.Framework$$anon$1@5ad4ca3a, false, [SuiteSelector])[0m
-[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 338 milliseconds.[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(org.mq.interpret.TokensTests, org.scalatest.tools.Framework$$anon$1@4cb3f86b, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 342 milliseconds.[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[36mTotal number of tests run: 56[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[36mSuites: completed 1, aborted 0[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[36mTests: succeeded 48, failed 8, canceled 0, ignored 0, pending 0[0m[0m

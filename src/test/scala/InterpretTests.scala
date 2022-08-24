@@ -286,47 +286,49 @@ class TokensTests extends FlatSpec with Matchers {
   }
 
 
-  "Dyadic FUNCTION TEST CASES" should "handle monadic operations (+) for ANumber" in {
-    assert(same(exec(List(AOperator("+"), ANumber(4.0))),
-                ANumber(4.0)))
-  }
-
-  it should "handle summing two matricies" in {
+  "DYADIC FUNCTION TEST CASES" should "handle summing two matricies" in {
     assert(same(exec(List(AMatrix(Array(Array(1.0, 2.0, 3.0), Array(1.0, 2.0, 3.0), Array(1.0, 2.0, 3.0))), AOperator("+"), 
     AMatrix(Array(Array(1.0, 2.0, 3.0), Array(1.0, 2.0, 3.0), Array(1.0, 2.0, 3.0))))),
                 AMatrix(Array(Array(2.0, 4.0, 6.0), Array(2.0, 4.0, 6.0), Array(2.0, 4.0, 6.0)))))
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  it should "Dyadic rho, Number rho number" in {
+    it should "Number rho number" in {
     assert(same(exec(List(ANumber(4.0), AOperator("rho"), ANumber(7.0))),
                 AVector(Array(7.0, 7.0, 7.0, 7.0))))
   }
 
-  it should "Dyadic rho, Number rho Vector" in {
+  it should "Number rho Vector" in {
     assert(same(exec(List(ANumber(4.0), AOperator("rho"), AVector(Array(7.0, 8.0, 3.0)))),
                 AVector(Array(7.0, 8.0, 3.0, 7.0))))
   }
 
-  it should "Dyadic rho, Vector rho Number" in {
+  it should "Vector rho Number" in {
     assert(same(exec(List(AVector(Array(2.0, 2.0)), AOperator("rho"), ANumber(7.0))),
                 AMatrix(Array(Array(7.0, 7.0), Array(7.0, 7.0)))))
   }
+
+  it should "Vector rho Vector" in {
+    assert(same(exec(List(AVector(Array(2.0, 2.0)), AOperator("rho"), AVector(Array(1.0, 2.0, 3.0, 4.0, 5.0)))),
+                AMatrix(Array(Array(1.0, 2.0), Array(3.0, 4.0)))))
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   it should "do take with negative number" in {
     assert(same(exec(List(ANumber(-2.0), AOperator("take"),

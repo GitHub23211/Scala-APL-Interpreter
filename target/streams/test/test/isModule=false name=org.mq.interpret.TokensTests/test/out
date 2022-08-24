@@ -61,11 +61,11 @@
 [0m[[0m[0minfo[0m] [0m[0m[32m- should handle monadic operations (-) for AVector[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should handle monadic operations (-) for AMatrix[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mDyadic FUNCTION TEST CASES[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should handle monadic operations (+) for ANumber[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should handle summing two matricies[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should Dyadic rho, Number rho number[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should Dyadic rho, Number rho Vector[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should Dyadic rho, Vector rho Number[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should Number rho number[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should Number rho Vector[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should Vector rho Number[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should Vector rho Vector[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should do take with negative number[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should do drop[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should do drop with negative number[0m[0m

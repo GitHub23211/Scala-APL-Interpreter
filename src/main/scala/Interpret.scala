@@ -261,19 +261,10 @@ object Interpret {
         case "div" => testDyadic(dyadicDiv, x, y)
         case "mul" => testDyadic(dyadicMul, x, y)
         case "|" => testDyadic(dyadicMod, x, y)
-        case "mem" => if (extractVector(y).contains(extractNumber(x))) ANumber(1) else ANumber(0)
+        case "mem" => dyadicMem(x, y)
         case "flr" => testDyadic(dyadicFlr, x, y)
         case "ceil" => testDyadic(dyadicCeil, x, y)
-        case "rho" => y match {
-                              case ANumber(ny) =>  x match {
-                                                      case ANumber(nx) => AVector((0 until getInt(ny)).map(x => nx).toArray)
-                                                      case AVector(vx) => AVector((0 until getInt(ny)).map(x => vx(x % vx.length)).toArray)
-                                                    }
-                              case AVector(vy) => x match {
-                                                      case ANumber(xn) => AMatrix((0 until getInt(vy(0))).map(x => (0 until getInt(vy(1))).map(y => xn).toArray).toArray)
-                                                      case AVector(vx) => AMatrix((0 until getInt(vy(0))).map(x => ((getInt(vy(1)) * x) until (getInt(vy(1)) * (x + 1))).map(y => vx(y % vx.length)).toArray).toArray)
-                                                    }
-                            }
+        case "rho" => dyadicRho(x, y)
         case "take" => dyadicTake(x, y)
         case "drop" => dyadicDrop(x, y)
         case _ => err("Error in applyDyadicOperation occurred")
@@ -286,12 +277,8 @@ object Interpret {
         case "div" => testMonadic(monadicDiv, x)
         case "mul" => testMonadic(monadicMul, x)
         case "|" => testMonadic(monadicMod, x)
-        case "iota" => AVector(monadicIota(x))
-        case "rho" => x match {
-                              case ANumber(_) => AVector(Array(0.0))
-                              case AVector(v) => AVector(Array(v.length))
-                              case AMatrix(m) => AVector(Array(m.length, m.head.length))
-                            }
+        case "iota" => monadicIota(x)
+        case "rho" => monadicRho(x)
         case "flr" => testMonadic(monadicFlr, x)
         case "ceil" => testMonadic(monadicCeil, x)
         case "~" => testMonadic(logicalNOT, x)
@@ -349,11 +336,18 @@ object Interpret {
 
   def logicalNOT(a:Double):Double = if(a > 0) 0 else if(a < 0) 1 else 0
 
-  def monadicIota(a:AObject):Array[Double] = a match {
-    case ANumber(n) => (1.0 to n by 1.0).toArray
-    case AVector(v) if(v.length == 1) => (1.0 to v.head by 1.0).toArray
+  def monadicIota(a:AObject):AVector = a match {
+    case ANumber(n) => AVector((1.0 to n by 1.0).toArray)
+    case AVector(v) if(v.length == 1) => AVector((1.0 to v.head by 1.0).toArray)
   }
 
+  def dyadicMem(a:AObject, b:AObject) = {
+    (a, b) match {
+      case (ANumber(n), AVector(v)) => if (v.contains(n)) ANumber(1) else ANumber(0)
+      case (AVector(v), ANumber(n)) => if (v.contains(n)) ANumber(1) else ANumber(0)
+    }
+  }
+  
   def dyadicTake(a:AObject, b:AObject):AVector = {
     (a, b) match {
       case (AVector(v), ANumber(n)) if(n < 0) => AVector(((v.length + getInt(n)) until v.length).map(a => v(a)).toArray)
@@ -362,9 +356,36 @@ object Interpret {
   }
 
   def dyadicDrop(a:AObject, b:AObject):AVector = {
-      (a, b) match {
-        case (AVector(v), ANumber(n)) if(n < 0) => AVector((0 until (v.length + getInt(n))).map(a => v(a)).toArray)
-        case (AVector(v), ANumber(n)) if(n > 0) => AVector((getInt(n) until v.length).map(a => v(a)).toArray)
-      }
+    (a, b) match {
+      case (AVector(v), ANumber(n)) if(n < 0) => AVector((0 until (v.length + getInt(n))).map(a => v(a)).toArray)
+      case (AVector(v), ANumber(n)) if(n > 0) => AVector((getInt(n) until v.length).map(a => v(a)).toArray)
     }
+  }
+
+  def monadicRho(a:AObject):AVector = {
+    a match {
+      case ANumber(_) => AVector(Array(0.0))
+      case AVector(v) => AVector(Array(v.length))
+      case AMatrix(m) => AVector(Array(m.length, m.head.length))
+    }
+  }
+
+  def dyadicRho(a:AObject, b:AObject):AObject = {
+    (a, b) match {
+      case (ANumber(x), ANumber(y)) => AVector((0 until getInt(y)).map(n => x).toArray)
+      case (ANumber(n), AVector(v)) => AMatrix((0 until getInt(v(0))).map(x => (0 until getInt(v(1))).map(y => n).toArray).toArray) 
+      case (AVector(v), ANumber(n)) => AVector((0 until getInt(n)).map(x => v(x % v.length)).toArray)
+      case (AVector(v1), AVector(v2)) => AMatrix((0 until getInt(v2(0))).map(x => ((getInt(v2(1)) * x) until (getInt(v2(1)) * (x + 1))).map(y => v1(y % v1.length)).toArray).toArray)
+    }
+    // y match {
+    //                           case ANumber(ny) =>  x match {
+    //                                                   case ANumber(nx) => AVector((0 until getInt(ny)).map(x => nx).toArray)
+    //                                                   case AVector(vx) => AVector((0 until getInt(ny)).map(x => vx(x % vx.length)).toArray)
+    //                                                 }
+    //                           case AVector(vy) => x match {
+    //                                                   case ANumber(xn) => AMatrix((0 until getInt(vy(0))).map(x => (0 until getInt(vy(1))).map(y => xn).toArray).toArray)
+    //                                                   case AVector(vx) => AMatrix((0 until getInt(vy(0))).map(x => ((getInt(vy(1)) * x) until (getInt(vy(1)) * (x + 1))).map(y => vx(y % vx.length)).toArray).toArray)
+    //                                                 }
+    //                         }
+  }
 }
