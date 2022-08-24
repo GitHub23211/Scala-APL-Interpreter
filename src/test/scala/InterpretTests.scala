@@ -260,10 +260,58 @@ class TokensTests extends FlatSpec with Matchers {
     assert(matchPat("2<-3") == List("2", "<-", "3"))
   }
 
-  it should "handle monadic operations (+)" in {
+  "MONADIC FUNCTION TEST CASES" should "handle monadic operations (+) for ANumber" in {
     assert(same(exec(List(AOperator("+"), ANumber(4.0))),
                 ANumber(4.0)))
   }
+
+  it should "handle monadic operations (+) for AVector" in {
+    assert(same(exec(List(AOperator("+"), AVector(Array(4.0, -3.0, 1.0)))),
+                AVector(Array(4.0, -3.0, 1.0))))
+  }
+
+  it should "handle monadic operations (-) for ANumber" in {
+    assert(same(exec(List(AOperator("-"), ANumber(4.0))),
+                ANumber(-4.0)))
+  }
+
+  it should "handle monadic operations (-) for AVector" in {
+    assert(same(exec(List(AOperator("-"), AVector(Array(4.0, -3.0, 1.0)))),
+                AVector(Array(-4.0, 3.0, -1.0))))
+  }
+
+  it should "handle monadic operations (-) for AMatrix" in {
+    assert(same(exec(List(AOperator("-"), AMatrix(Array(Array(4.0, 3.0, 1.0), Array(1.0, 100.5, 232.2), Array(-92.3, -100.0, 5.0))))),
+                AMatrix(Array(Array(-4.0, -3.0, -1.0), Array(-1.0, -100.5, -232.2), Array(92.3, 100.0, -5.0)))))
+  }
+
+
+  "Dyadic FUNCTION TEST CASES" should "handle monadic operations (+) for ANumber" in {
+    assert(same(exec(List(AOperator("+"), ANumber(4.0))),
+                ANumber(4.0)))
+  }
+
+  it should "handle summing two matricies" in {
+    assert(same(exec(List(AMatrix(Array(Array(1.0, 2.0, 3.0), Array(1.0, 2.0, 3.0), Array(1.0, 2.0, 3.0))), AOperator("+"), 
+    AMatrix(Array(Array(1.0, 2.0, 3.0), Array(1.0, 2.0, 3.0), Array(1.0, 2.0, 3.0))))),
+                AMatrix(Array(Array(2.0, 4.0, 6.0), Array(2.0, 4.0, 6.0), Array(2.0, 4.0, 6.0)))))
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   it should "Dyadic rho, Number rho number" in {
     assert(same(exec(List(ANumber(4.0), AOperator("rho"), ANumber(7.0))),
@@ -278,5 +326,46 @@ class TokensTests extends FlatSpec with Matchers {
   it should "Dyadic rho, Vector rho Number" in {
     assert(same(exec(List(AVector(Array(2.0, 2.0)), AOperator("rho"), ANumber(7.0))),
                 AMatrix(Array(Array(7.0, 7.0), Array(7.0, 7.0)))))
+  }
+
+  it should "do take with negative number" in {
+    assert(same(exec(List(ANumber(-2.0), AOperator("take"),
+                          AVector(Array(3.0, 1.0, 4.0, 1.0, 5.0)), 
+                          )),
+                AVector(Array(1.0, 5.0))))
+  }
+
+  it should "do drop" in {
+    assert(same(exec(List(ANumber(2.0), AOperator("drop"),
+                          AVector(Array(3.0, 1.0, 4.0, 1.0, 5.0)), 
+                          )),
+                AVector(Array(4.0, 1.0, 5.0))))
+  }
+
+  it should "do drop with negative number" in {
+    assert(same(exec(List(ANumber(-2.0), AOperator("drop"),
+                          AVector(Array(3.0, 1.0, 4.0, 1.0, 5.0)), 
+                          )),
+                AVector(Array(3.0, 1.0, 4.0))))
+  }
+
+  it should "floor a number" in {
+    assert(same(exec(List(AOperator("flr"), ANumber(2.3))), ANumber(2.0)))
+  }
+
+  it should "ceil a number" in {
+    assert(same(exec(List(AOperator("ceil"), ANumber(2.3))), ANumber(3.0)))
+  }
+
+  it should "find minimum" in {
+    assert(same(exec(List(ANumber(500.0), AOperator("flr"), ANumber(2.3))), ANumber(2.3)))
+  }
+
+  it should "find maximum" in {
+    assert(same(exec(List(ANumber(500.0), AOperator("ceil"), ANumber(2.3))), ANumber(500.0)))
+  }
+
+  it should "return abs value" in {
+    assert(same(exec(List(AOperator("|"), ANumber(-2.3))), ANumber(2.3)))
   }
 }

@@ -32,7 +32,9 @@ object Main {
       val line = readLine()   // no prompt is given
       if(line.size == 0) return;
       val tokens = matchPat(line)
-      val lineObjs = tokensToAObjs(tokens)
+      val d = List(AMatrix(Array(Array(1.0, 2.0, 3.0), Array(1.0, 2.0, 3.0), Array(1.0, 2.0, 3.0))), AOperator("+"), 
+      AMatrix(Array(Array(1.0, 2.0, 3.0), Array(1.0, 2.0, 3.0), Array(1.0, 2.0, 3.0))))
+      val lineObjs = Some(d) //tokensToAObjs(tokens)
 
       var a = 7
       val c = Array(2, 2)
@@ -42,8 +44,7 @@ object Main {
         case AMatrix(m) => {println(m); m.map(x => println(x.mkString(",")))}
       }
 
-      printMatrix(applyDyadicOperation("rho", AVector(Array(4.0, 7.0, 1.0, 9.0)), AVector(Array(2.0, 3.0))))
-
+      
 
 
 
