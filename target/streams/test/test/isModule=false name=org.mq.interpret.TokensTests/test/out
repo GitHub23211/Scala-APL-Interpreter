@@ -33,9 +33,9 @@
 [0m[[0m[0minfo[0m] [0m[0m[32m- should reduce a vector with +[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should reduce a matrix with mul[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m- should do outer product *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  scala.MatchError: (+,+) (of class scala.Tuple2)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.applyInnerProduct(Interpret.scala:296)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:201)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  scala.MatchError: (AOperator(out),+) (of class scala.Tuple2)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.applyInnerProduct(Interpret.scala:297)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:202)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.eval(Interpret.scala:173)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.exec(Interpret.scala:150)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.TokensTests.$anonfun$new$27(InterpretTests.scala:190)[0m[0m
@@ -50,10 +50,10 @@
 [0m[[0m[0minfo[0m] [0m[0m[31m- should handle bracketted expressions *** FAILED ***[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  TokensTests.this.same(Interpret.exec(scala.collection.immutable.List.apply[Product with Serializable with org.mq.interpret.Interpret.AObject](Interpret.LRBrac, Interpret.ANumber.apply(3.0), Interpret.AOperator.apply("mul"), Interpret.ANumber.apply(4.0), Interpret.RRBrac, Interpret.AOperator.apply("+"), Interpret.ANumber.apply(5.0))), Interpret.ANumber.apply(17.0)) was false (InterpretTests.scala:206)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m- should handle complex expressions *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  scala.MatchError: (org.mq.interpret.Interpret$AVector@edb93ff,RRBrac) (of class scala.Tuple2)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.dyadicTake(Interpret.scala:387)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.applyDyadicOperation(Interpret.scala:261)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:203)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  scala.MatchError: (org.mq.interpret.Interpret$AVector@699f7bd,RRBrac) (of class scala.Tuple2)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.dyadicTake(Interpret.scala:389)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.applyDyadicOperation(Interpret.scala:260)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:204)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.eval(Interpret.scala:173)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.exec(Interpret.scala:150)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.TokensTests.$anonfun$new$30(InterpretTests.scala:215)[0m[0m
@@ -89,6 +89,8 @@
 [0m[[0m[0minfo[0m] [0m[0m[32m- should reduce a vector with div[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should reduce a matrix with -[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should reduce a matrix with div[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mINNER PRODUCT:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should calculate inner product then add to matrix[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should do take with negative number[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should do drop[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should do drop with negative number[0m[0m

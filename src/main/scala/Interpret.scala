@@ -198,11 +198,10 @@ object Interpret {
     case _ => (lineObjs.head, lineObjs.tail.head) match {
                           case (AOperator(op), ASymbol(s)) => evalWithRightArg(applyDyadicOperation(op, rightArg, getValue(s)), lineObjs.tail.tail)
                           case (AOperator("/"), AOperator(op)) => evalWithRightArg(applyReductiveOperation(op, rightArg), lineObjs.tail.tail)
-                          case (AOperator(op), AOperator(".")) => applyInnerProduct("+", op, lineObjs(3), rightArg)
+                          case (Assign, ASymbol(s)) => {setValue(s, rightArg); evalWithRightArg(getValue(s), lineObjs.tail.tail);}
+                          case (AOperator(g), AOperator(".")) => evalWithRightArg(applyInnerProduct((0 until 2).map(i => lineObjs.tail.tail(i)).toList, g, rightArg), (2 until lineObjs.tail.tail.length).map(i => lineObjs.tail.tail(i)).toList)
                           case (AOperator(op), AOperator(_)) => evalWithRightArg(applyMonadicOperation(op, rightArg), lineObjs.tail)
                           case (AOperator(op), _) => evalWithRightArg(applyDyadicOperation(op, rightArg, lineObjs.tail.head), lineObjs.tail.tail)
-                          case (Assign, ASymbol(s)) => {setValue(s, rightArg); evalWithRightArg(getValue(s), lineObjs.tail.tail);}
-                          case (ANumber(n), _) => evalWithRightArg(rightArg, lineObjs.tail)
                           case _ => err("Error case _ => (lineObjs.head, lineObjs.tail.head) occurred")
                         }
     }
@@ -292,11 +291,14 @@ object Interpret {
         // case "rho" => reductiveOP(x)
     }
 
-  def applyInnerProduct(g:String, f:String, a:AObject, b:AObject):AObject =
-   (g, f) match {
-    case ("+", "mul") => innerProductOp(dyadicMul, reductivePlus, a, b)
-    case ("mul", "+") => innerProductOp(dyadicPlus, reductiveMul, a, b)
-   }
+  def applyInnerProduct(list:List[AObject], f:String, a:AObject):AObject = {
+      val g = list(0)
+      val leftArg = list(1)
+    (g, f) match {
+      case (AOperator("+"), "mul") => innerProductOp(dyadicMul, reductivePlus, leftArg, a)
+    }
+  }
+   
 
   def innerProductOp(g:(Double, Double) => Double, f:Array[Double] => Double, a:AObject, b:AObject):AObject =
     (a, b) match {

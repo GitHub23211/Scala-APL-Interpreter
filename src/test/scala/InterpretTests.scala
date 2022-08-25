@@ -337,7 +337,12 @@ class TokensTests extends FlatSpec with Matchers {
   }
 
 
-
+  "INNER PRODUCT:" should "calculate inner product then add to matrix" in {
+    assert(same(exec(List(AMatrix(Array(Array(2.0, 3.0), Array(4.0, 1.0))), AOperator("+"), AMatrix(Array(Array(2.0, 3.0), Array(4.0, 1.0))), 
+                          AOperator("+"), AOperator("."), AOperator("mul"),
+                          AMatrix(Array(Array(1.0, 5.0), Array(2.0, 2.0))))), 
+                AMatrix(Array(Array(10.0, 19.0), Array(10.0, 23.0)))))
+  }
 
 
 
