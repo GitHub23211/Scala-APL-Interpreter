@@ -124,7 +124,7 @@ object Interpret {
   def getValue(varName:String):AObject =
   {
     variable match {
-      case (Some(n), Some(num)) if (n == varName) => num
+      case (Some(s), Some(num)) if (varName == s) => num
       case _ => err("variable " + varName + " undefined")
     }
   }
@@ -182,24 +182,28 @@ object Interpret {
     // if rightArg is an error object then don't try to evaluate the rest
     // of the line; instead, return this error
     if(isError(rightArg)) return rightArg
+    println(rightArg + " | " + lineObjs)
 
     lineObjs.size match
     {
-    case 0 => rightArg    // end of line
+    case 0 => rightArg match {
+                              case ASymbol(s) => getValue(s)
+                              case _ => rightArg
+                            }
     case 1 => lineObjs.head match {
                               case AOperator(op) => applyMonadicOperation(op, rightArg)
+                              case ASymbol(s) => getValue(s)
                               case _ => err("Error occurred")
                             } 
-    case _ => lineObjs.head match {
-                          case AOperator(op) => lineObjs.tail.head match {
-                                                                case ANumber(_) => evalWithRightArg(applyDyadicOperation(op, rightArg, lineObjs.tail.head), lineObjs.tail.tail)
-                                                                case AOperator(_) => evalWithRightArg(applyMonadicOperation(op, rightArg), lineObjs.tail)
-                                                                case AVector(_) => evalWithRightArg(applyDyadicOperation(op, rightArg, lineObjs.tail.head), lineObjs.tail.tail)
-                                                                case AMatrix(_) => evalWithRightArg(applyDyadicOperation(op, rightArg, lineObjs.tail.head), lineObjs.tail.tail)
-                                                                case _ => err("Error case _ => lineObjs.head match, case AOperator(op) => lineObjs.tail.head match occurred")
-                                                              }
-                          case ANumber(n) => evalWithRightArg(rightArg, lineObjs.tail)
-                          case _ => err("Error evalWithRightArg, case _ => lineObjs.head match, case ANumber(n) occurred")
+    case _ => (lineObjs.head, lineObjs.tail.head) match {
+                          case (AOperator(op), ANumber(_)) => evalWithRightArg(applyDyadicOperation(op, rightArg, lineObjs.tail.head), lineObjs.tail.tail)
+                          case (AOperator(op), ASymbol(s)) => evalWithRightArg(applyDyadicOperation(op, rightArg, getValue(s)), lineObjs.tail.tail)
+                          case (AOperator(op), AOperator(_)) => evalWithRightArg(applyMonadicOperation(op, rightArg), lineObjs.tail)
+                          case (AOperator(op), AVector(_)) => evalWithRightArg(applyDyadicOperation(op, rightArg, lineObjs.tail.head), lineObjs.tail.tail)
+                          case (AOperator(op), AMatrix(_)) => evalWithRightArg(applyDyadicOperation(op, rightArg, lineObjs.tail.head), lineObjs.tail.tail)
+                          case (Assign, arg @ ASymbol(s)) => {setValue(s, rightArg); evalWithRightArg(getValue(s), lineObjs.tail.tail);}
+                          case (ANumber(n), _) => evalWithRightArg(rightArg, lineObjs.tail)
+                          case _ => err("Error case _ => (lineObjs.head, lineObjs.tail.head) occurred")
                         }
     }
   }
@@ -237,10 +241,12 @@ object Interpret {
 
   ///////////////////////////////////////////////////////////////////
   //
-  // Functions that deal with applying each operation for a given combination of Scalars, Vectors and/or Matrices
+  // Contains:
+  // Functions that describe the monadic and dyadic version of each operation
+  // Functions that deal with applying a monadic/dyadic operation for a given combination of Scalars, Vectors and/or Matrices
   //
   ///////////////////////////////////////////////////////////////////
-  
+
   def applyDyadicOperation(op:String, x:AObject, y:AObject): AObject =
     op match {
         case "+" => dyadicOP(dyadicPlus, x, y)
@@ -336,7 +342,7 @@ object Interpret {
     }
   }
 
-  def dyadicMem(a:AObject, b:AObject) = {
+  def dyadicMem(a:AObject, b:AObject):ANumber = {
     (a, b) match {
       case (ANumber(n), AVector(v)) => if (v.contains(n)) ANumber(1) else ANumber(0)
       case (AVector(v), ANumber(n)) => if (v.contains(n)) ANumber(1) else ANumber(0)

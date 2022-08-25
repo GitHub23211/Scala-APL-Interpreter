@@ -32,7 +32,7 @@ object Main {
       val line = readLine()   // no prompt is given
       if(line.size == 0) return;
       val tokens = matchPat(line)
-      val d = List(AVector(Array(2.0, 2.0)), AOperator("rho"), AVector(Array(1.0, 2.0, 3.0, 4.0, 5.0)))
+      val d = List(ASymbol("x"), AOperator("+"), ANumber(3.0), AOperator("mul"), ASymbol("x"), Assign, ANumber(7.0))
       val lineObjs = Some(d)//tokensToAObjs(tokens)
 
       var a = 7

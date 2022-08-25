@@ -28,8 +28,7 @@
 [0m[[0m[0minfo[0m] [0m[0m[32m- should treat one-element vector as scalar[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should max vector and vector[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mVARIABLES:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- should work *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  TokensTests.this.same(Interpret.exec(scala.collection.immutable.List.apply[Product with Serializable with org.mq.interpret.Interpret.AObject](Interpret.ASymbol.apply("x"), Interpret.AOperator.apply("+"), Interpret.ANumber.apply(3.0), Interpret.AOperator.apply("mul"), Interpret.ASymbol.apply("x"), Interpret.Assign, Interpret.ANumber.apply(7.0))), Interpret.ANumber.apply(28.0)) was false (InterpretTests.scala:171)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should work[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mOPERATORS:[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m- should reduce a vector with + *** FAILED ***[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  TokensTests.this.same(Interpret.exec(scala.collection.immutable.List.apply[Product with Serializable with org.mq.interpret.Interpret.AObject](Interpret.AOperator.apply("+"), Interpret.AOperator.apply("/"), Interpret.AVector.apply(scala.Array.apply(3.0, 1.0, 4.0, 1.0, 5.0)))), Interpret.ANumber.apply(14.0)) was false (InterpretTests.scala:177)[0m[0m
