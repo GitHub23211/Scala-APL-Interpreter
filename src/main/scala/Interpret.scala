@@ -196,12 +196,12 @@ object Interpret {
                               case _ => err("Error occurred")
                             } 
     case _ => (lineObjs.head, lineObjs.tail.head) match {
-                          case (AOperator(op), ANumber(_)) => evalWithRightArg(applyDyadicOperation(op, rightArg, lineObjs.tail.head), lineObjs.tail.tail)
                           case (AOperator(op), ASymbol(s)) => evalWithRightArg(applyDyadicOperation(op, rightArg, getValue(s)), lineObjs.tail.tail)
+                          case (AOperator("/"), AOperator(op)) => evalWithRightArg(applyReductiveOperation(op, rightArg), lineObjs.tail.tail)
+                          case (AOperator(op), AOperator(".")) => applyInnerProduct("+", op, rightArg, lineObjs(3))
                           case (AOperator(op), AOperator(_)) => evalWithRightArg(applyMonadicOperation(op, rightArg), lineObjs.tail)
-                          case (AOperator(op), AVector(_)) => evalWithRightArg(applyDyadicOperation(op, rightArg, lineObjs.tail.head), lineObjs.tail.tail)
-                          case (AOperator(op), AMatrix(_)) => evalWithRightArg(applyDyadicOperation(op, rightArg, lineObjs.tail.head), lineObjs.tail.tail)
-                          case (Assign, arg @ ASymbol(s)) => {setValue(s, rightArg); evalWithRightArg(getValue(s), lineObjs.tail.tail);}
+                          case (AOperator(op), _) => evalWithRightArg(applyDyadicOperation(op, rightArg, lineObjs.tail.head), lineObjs.tail.tail)
+                          case (Assign, ASymbol(s)) => {setValue(s, rightArg); evalWithRightArg(getValue(s), lineObjs.tail.tail);}
                           case (ANumber(n), _) => evalWithRightArg(rightArg, lineObjs.tail)
                           case _ => err("Error case _ => (lineObjs.head, lineObjs.tail.head) occurred")
                         }
@@ -242,8 +242,8 @@ object Interpret {
   ///////////////////////////////////////////////////////////////////
   //
   // Contains:
-  // Functions that describe the monadic and dyadic version of each operation
-  // Functions that deal with applying a monadic/dyadic operation for a given combination of Scalars, Vectors and/or Matrices
+  // Functions that describe the monadic, dyadic and reductive version of each operation
+  // Functions that deal with applying a monadic, dyadic or reductive operation for a given combination of Scalars, Vectors and/or Matrices
   //
   ///////////////////////////////////////////////////////////////////
 
@@ -263,7 +263,7 @@ object Interpret {
         case _ => err("Error in applyDyadicOperation occurred")
     }
   
-  def applyMonadicOperation(op:String, x:AObject): AObject =
+  def applyMonadicOperation(op:String, x:AObject):AObject =
     op match {
         case "+" => monadicOp(monadicPlus, x)
         case "-" => monadicOp(monadicMinus, x)
@@ -277,8 +277,33 @@ object Interpret {
         case "rho" => monadicRho(x)
         case _ => err("Error in applyMonadicOperation occurred")
     }
+  
+  def applyReductiveOperation(op:String, x:AObject):AObject =
+    op match {
+        case "+" => reductiveOP(reductivePlus, x)
+        case "-" => reductiveOP(reductiveMinus, x)
+        case "div" => reductiveOP(reductiveDiv, x)
+        case "mul" => reductiveOP(reductiveMul, x)
+        case "|" => reductiveOP(reductiveMod, x)
+        // case "flr" => reductiveOP(, x)
+        // case "ceil" => reductiveOP(, x)
+        // case "~" => reductiveOP(, x)
+        // case "iota" => reductiveOP(x)
+        // case "rho" => reductiveOP(x)
+    }
 
-  def monadicOp(operation:Double => Double, a:AObject): AObject = {
+  def applyInnerProduct(g:String, f:String, a:AObject, b:AObject):AObject =
+   (g, f) match {
+    case ("+", "mul") => innerProductOp(dyadicMul, reductivePlus, a, b)
+    case ("mul", "+") => innerProductOp(dyadicMul, reductivePlus, a, b)
+   }
+
+  def innerProductOp(g:(Double, Double) => Double, f:Array[Double] => Double, a:AObject, b:AObject):AObject =
+    (a, b) match {
+      case (AMatrix(m1), AMatrix(m2)) => AMatrix((0 until m1.length).map(k => (0 until m1.length).map(i => f((0 until m1(i).length).map(j => g(m1(i)(j), m2(j)(k))).toArray)).toArray).toArray)
+    }
+
+  def monadicOp(operation:Double => Double, a:AObject):AObject = 
     a match {
       case ANumber(n) => ANumber(operation(n))
       case AVector(v) if(v.length == 1) => ANumber(operation(v.head))
@@ -286,9 +311,8 @@ object Interpret {
       case AMatrix(m) => AMatrix(m.map(x => x.map(y => operation(y)).toArray).toArray)
       case _ => err("Error in monadicOp occurred")
     }
-  }
 
-  def dyadicOP(operation:(Double, Double) => Double, a:AObject, b:AObject): AObject = {
+  def dyadicOP(operation:(Double, Double) => Double, a:AObject, b:AObject):AObject = 
     (a, b) match {
       case (ANumber(x), ANumber(y)) => ANumber(operation(x, y))
       case (ANumber(n), AVector(v)) if(v.length == 1) => ANumber(operation(n, v.head))
@@ -304,28 +328,40 @@ object Interpret {
             AMatrix((0 until m1.length).map(i => (0 until m1(i).length).map(j => operation(m1(i)(j), m2(i)(j))).toArray).toArray)
       case _ => err("Error in dyadicOP occurred")
     }
-  }
+
+  def reductiveOP(operation:Array[Double] => Double, a:AObject):AObject =
+    a match {
+      case AVector(v) => ANumber(operation(v))
+      case AMatrix(m) => AVector(m.map(v => operation(v)).toArray)
+    }
 
   def monadicPlus(a:Double):Double = 0.0 + a
   def dyadicPlus(a:Double, b:Double):Double = a + b
+  def reductivePlus(a:Array[Double]):Double = a.reduce(_ + _)
 
   def monadicMinus(a:Double):Double = 0.0 - a
   def dyadicMinus(a:Double, b:Double):Double = a - b
+  def reductiveMinus(a:Array[Double]):Double = a.reduce(_ - _)
 
   def monadicDiv(a:Double):Double = 1.0 / a
   def dyadicDiv(a:Double, b:Double):Double = a / b
+  def reductiveDiv(a:Array[Double]):Double = a.reduce(_ / _)
 
   def monadicMul(a:Double):Double = if(a > 0) 1 else if(a < 0) -1 else 0
   def dyadicMul(a:Double, b:Double):Double = a * b
+  def reductiveMul(a:Array[Double]):Double = a.reduce(_ * _)
 
   def monadicMod(a:Double):Double = if(a > 0) a else if(a < 0) -a else a
   def dyadicMod(a:Double, b:Double):Double = a % b
+  def reductiveMod(a:Array[Double]):Double = a.reduce(_ % _)
 
   def monadicFlr(a:Double):Double = a.floor
   def dyadicFlr(a:Double, b:Double):Double = a min b
+  def reductiveFlr(a:Array[Double]):Double = a.reduce(_ min _)
 
   def monadicCeil(a:Double):Double = a.ceil
   def dyadicCeil(a:Double, b:Double):Double = a max b
+  def reductiveCeil(a:Array[Double]):Double = a.reduce(_ max _)
 
   def logicalNOT(a:Double):Double = if(a > 0) 0 else if(a < 0) 1 else 0
 
@@ -334,41 +370,36 @@ object Interpret {
     case AVector(v) if(v.length == 1) => AVector((1.0 to v.head by 1.0).toArray)
   }
 
-  def monadicRho(a:AObject):AVector = {
+  def monadicRho(a:AObject):AVector = 
     a match {
       case ANumber(_) => AVector(Array(0.0))
       case AVector(v) => AVector(Array(v.length))
       case AMatrix(m) => AVector(Array(m.length, m.head.length))
     }
-  }
 
-  def dyadicMem(a:AObject, b:AObject):ANumber = {
+  def dyadicMem(a:AObject, b:AObject):ANumber = 
     (a, b) match {
       case (ANumber(n), AVector(v)) => if (v.contains(n)) ANumber(1) else ANumber(0)
       case (AVector(v), ANumber(n)) => if (v.contains(n)) ANumber(1) else ANumber(0)
     }
-  }
   
-  def dyadicTake(a:AObject, b:AObject):AVector = {
+  def dyadicTake(a:AObject, b:AObject):AVector = 
     (a, b) match {
       case (AVector(v), ANumber(n)) if(n < 0) => AVector(((v.length + getInt(n)) until v.length).map(a => v(a)).toArray)
       case (AVector(v), ANumber(n)) if(n > 0) => AVector((0 until getInt(n)).map(a => v(a)).toArray)
     }
-  }
 
-  def dyadicDrop(a:AObject, b:AObject):AVector = {
+  def dyadicDrop(a:AObject, b:AObject):AVector = 
     (a, b) match {
       case (AVector(v), ANumber(n)) if(n < 0) => AVector((0 until (v.length + getInt(n))).map(a => v(a)).toArray)
       case (AVector(v), ANumber(n)) if(n > 0) => AVector((getInt(n) until v.length).map(a => v(a)).toArray)
     }
-  }
 
-  def dyadicRho(a:AObject, b:AObject):AObject = {
+  def dyadicRho(a:AObject, b:AObject):AObject = 
     (a, b) match {
       case (ANumber(x), ANumber(y)) => AVector((0 until getInt(y)).map(n => x).toArray)
       case (ANumber(n), AVector(v)) => AMatrix((0 until getInt(v(0))).map(x => (0 until getInt(v(1))).map(y => n).toArray).toArray) 
       case (AVector(v), ANumber(n)) => AVector((0 until getInt(n)).map(x => v(x % v.length)).toArray)
       case (AVector(v1), AVector(v2)) => AMatrix((0 until getInt(v2(0))).map(x => ((getInt(v2(1)) * x) until (getInt(v2(1)) * (x + 1))).map(y => v1(y % v1.length)).toArray).toArray)
     }
-  }
 }

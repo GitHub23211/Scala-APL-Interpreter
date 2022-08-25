@@ -30,19 +30,39 @@
 [0m[[0m[0minfo[0m] [0m[0m[32mVARIABLES:[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should work[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mOPERATORS:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- should reduce a vector with + *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  TokensTests.this.same(Interpret.exec(scala.collection.immutable.List.apply[Product with Serializable with org.mq.interpret.Interpret.AObject](Interpret.AOperator.apply("+"), Interpret.AOperator.apply("/"), Interpret.AVector.apply(scala.Array.apply(3.0, 1.0, 4.0, 1.0, 5.0)))), Interpret.ANumber.apply(14.0)) was false (InterpretTests.scala:177)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- should reduce a matrix with mul *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  TokensTests.this.same(Interpret.exec(scala.collection.immutable.List.apply[Product with Serializable with org.mq.interpret.Interpret.AObject](Interpret.AOperator.apply("mul"), Interpret.AOperator.apply("/"), Interpret.AMatrix.apply(scala.Array.apply[Array[Double]](scala.Array.apply(2.0, 3.0, 2.0, 7.0, 1.0), scala.Array.apply(3.0, 1.0, 4.0, 1.0, 5.0))((ClassTag.apply[Array[Double]](scala.runtime.ScalaRunTime.arrayClass(classOf[scala.Double])): scala.reflect.ClassTag[Array[Double]]))))), Interpret.AVector.apply(scala.Array.apply(84.0, 60.0))) was false (InterpretTests.scala:183)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should reduce a vector with +[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should reduce a matrix with mul[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m- should do outer product *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  TokensTests.this.same(Interpret.exec(scala.collection.immutable.List.apply[Product with Serializable with org.mq.interpret.Interpret.AObject](Interpret.AVector.apply(scala.Array.apply(2.0, 3.0, 1.0)), Interpret.AOperator.apply("out"), Interpret.AOperator.apply("."), Interpret.AOperator.apply("+"), Interpret.AVector.apply(scala.Array.apply(3.0, 1.0, 4.0, 1.0, 5.0)))), Interpret.AMatrix.apply(scala.Array.apply[Array[Double]](scala.Array.apply(5.0, 3.0, 6.0, 3.0, 7.0), scala.Array.apply(6.0, 4.0, 7.0, 4.0, 8.0), scala.Array.apply(4.0, 2.0, 5.0, 2.0, 6.0))((ClassTag.apply[Array[Double]](scala.runtime.ScalaRunTime.arrayClass(classOf[scala.Double])): scala.reflect.ClassTag[Array[Double]])))) was false (InterpretTests.scala:190)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  scala.MatchError: (+,+) (of class scala.Tuple2)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.applyInnerProduct(Interpret.scala:296)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:201)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.eval(Interpret.scala:173)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.exec(Interpret.scala:150)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.TokensTests.$anonfun$new$27(InterpretTests.scala:190)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf(OutcomeOf.scala:85)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf$(OutcomeOf.scala:83)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:20)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m- should do inner product *** FAILED ***[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  TokensTests.this.same(Interpret.exec(scala.collection.immutable.List.apply[Product with Serializable with org.mq.interpret.Interpret.AObject](Interpret.AMatrix.apply(scala.Array.apply[Array[Double]](scala.Array.apply(2.0, 3.0), scala.Array.apply(4.0, 1.0))((ClassTag.apply[Array[Double]](scala.runtime.ScalaRunTime.arrayClass(classOf[scala.Double])): scala.reflect.ClassTag[Array[Double]]))), Interpret.AOperator.apply("+"), Interpret.AOperator.apply("."), Interpret.AOperator.apply("mul"), Interpret.AMatrix.apply(scala.Array.apply[Array[Double]](scala.Array.apply(1.0, 5.0), scala.Array.apply(2.0, 2.0))((ClassTag.apply[Array[Double]](scala.runtime.ScalaRunTime.arrayClass(classOf[scala.Double])): scala.reflect.ClassTag[Array[Double]]))))), Interpret.AMatrix.apply(scala.Array.apply[Array[Double]](scala.Array.apply(8.0, 16.0), scala.Array.apply(6.0, 22.0))((ClassTag.apply[Array[Double]](scala.runtime.ScalaRunTime.arrayClass(classOf[scala.Double])): scala.reflect.ClassTag[Array[Double]])))) was false (InterpretTests.scala:199)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mFULL EVAL:[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m- should handle bracketted expressions *** FAILED ***[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  TokensTests.this.same(Interpret.exec(scala.collection.immutable.List.apply[Product with Serializable with org.mq.interpret.Interpret.AObject](Interpret.LRBrac, Interpret.ANumber.apply(3.0), Interpret.AOperator.apply("mul"), Interpret.ANumber.apply(4.0), Interpret.RRBrac, Interpret.AOperator.apply("+"), Interpret.ANumber.apply(5.0))), Interpret.ANumber.apply(17.0)) was false (InterpretTests.scala:206)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m- should handle complex expressions *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  TokensTests.this.same(Interpret.exec(scala.collection.immutable.List.apply[Product with Serializable with org.mq.interpret.Interpret.AObject](Interpret.AVector.apply(scala.Array.apply(5.0, 1.0, 2.0)), Interpret.AOperator.apply("+"), Interpret.LRBrac, Interpret.ANumber.apply(4.0), Interpret.AOperator.apply("|"), Interpret.ANumber.apply(5.0), Interpret.RRBrac, Interpret.AOperator.apply("take"), Interpret.ANumber.apply(2.0), Interpret.AOperator.apply("drop"), Interpret.AOperator.apply("iota"), Interpret.ANumber.apply(5.0))), Interpret.AVector.apply(scala.Array.apply(8.0, 4.0, 5.0))) was false (InterpretTests.scala:212)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  scala.MatchError: (org.mq.interpret.Interpret$AVector@a025bb5b,RRBrac) (of class scala.Tuple2)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.dyadicTake(Interpret.scala:387)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.applyDyadicOperation(Interpret.scala:261)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:203)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.eval(Interpret.scala:173)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.exec(Interpret.scala:150)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.TokensTests.$anonfun$new$30(InterpretTests.scala:215)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf(OutcomeOf.scala:85)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf$(OutcomeOf.scala:83)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m- should handle complex expressions - primes *** FAILED ***[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  TokensTests.this.same(Interpret.exec(scala.collection.immutable.List.apply[Product with Serializable with org.mq.interpret.Interpret.AObject](Interpret.LRBrac, Interpret.AOperator.apply("~"), Interpret.ASymbol.apply("r"), Interpret.AOperator.apply("mem"), Interpret.ASymbol.apply("r"), Interpret.AOperator.apply("out"), Interpret.AOperator.apply("."), Interpret.AOperator.apply("mul"), Interpret.ASymbol.apply("r"), Interpret.RRBrac, Interpret.AOperator.apply("/"), Interpret.ASymbol.apply("r"), Interpret.Assign, Interpret.ANumber.apply(1.0), Interpret.AOperator.apply("drop"), Interpret.AOperator.apply("iota"), Interpret.ANumber.apply(20.0))), Interpret.AVector.apply(scala.Array.apply(2.0, 3.0, 5.0, 7.0, 11.0, 13.0, 17.0, 19.0))) was false (InterpretTests.scala:220)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mCUSTOM TEST CASES[0m[0m
@@ -65,6 +85,11 @@
 [0m[[0m[0minfo[0m] [0m[0m[32m- should Number rho Vector[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should Vector rho Number[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should Vector rho Vector[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mOPERATORS:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should reduce a vector with -[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should reduce a vector with div[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should reduce a matrix with -[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should reduce a matrix with div[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should do take with negative number[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should do drop[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should do drop with negative number[0m[0m

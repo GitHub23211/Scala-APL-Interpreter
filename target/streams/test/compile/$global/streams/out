@@ -1,5 +1,7 @@
-[0m[[0m[31merror[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\test\scala\InterpretTests.scala:332:16: not enough arguments for method same: (a: org.mq.interpret.Interpret.AObject, b: org.mq.interpret.Interpret.AObject)Boolean.[0m
-[0m[[0m[31merror[0m] [0m[0mUnspecified value parameter b.[0m
-[0m[[0m[31merror[0m] [0m[0m    assert(same(exec(List(AVector(Array(2.0, 2.0)), AOperator("rho"), AVector(Array(1.0, 2.0, 3.0, 4.0, 5.0))),[0m
-[0m[[0m[31merror[0m] [0m[0m               ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\test\scala\InterpretTests.scala:311:50: illegal start of simple expression[0m
+[0m[[0m[31merror[0m] [0m[0m    assert(same(exec(List(AVector(Array(3.0, 2.0,)), AOperator("rho"), AVector(Array(4.0, 7.0, 1.0, 9.0)))),[0m
+[0m[[0m[31merror[0m] [0m[0m                                                 ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\test\scala\InterpretTests.scala:313:3: ')' expected but '}' found.[0m
+[0m[[0m[31merror[0m] [0m[0m  }[0m
+[0m[[0m[31merror[0m] [0m[0m  ^[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m

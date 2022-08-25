@@ -108,3 +108,36 @@ run
 test
 run
 test
+rn
+run
+test
+run
+test
+  def reductivePlus(a:Array[Double]):Array[Double] = a.reduce(_ + _)test
+test
+run
+test
+run
+test
+run
+test
+run
+test
+run
+test
++1
+run
+run +1
+run
+test
+run
+test
+run
+test
+run
+test
+run
++1
+run
+test
+run

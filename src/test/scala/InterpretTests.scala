@@ -308,9 +308,34 @@ class TokensTests extends FlatSpec with Matchers {
   }
 
   it should "Vector rho Vector" in {
-    assert(same(exec(List(AVector(Array(2.0, 2.0)), AOperator("rho"), AVector(Array(1.0, 2.0, 3.0, 4.0, 5.0)))),
-                AMatrix(Array(Array(1.0, 2.0), Array(3.0, 4.0)))))
+    assert(same(exec(List(AVector(Array(2.0, 3.0)), AOperator("rho"), AVector(Array(4.0, 7.0, 1.0, 9.0)))),
+                AMatrix(Array(Array(4.0, 7.0, 1.0), Array(9.0, 4.0, 7.0)))))
   }
+
+  "OPERATORS:" should "reduce a vector with -" in {
+    assert(same(exec(List(AOperator("-"), AOperator("/"),
+                          AVector(Array(3.0, 1.0, 4.0, 1.0, 5.0)))), 
+                ANumber(-8.0)))
+  }
+
+  it should "reduce a vector with div" in {
+    assert(same(exec(List(AOperator("div"), AOperator("/"),
+                          AVector(Array(3.0, 1.0, 4.0, 1.0, 5.0)))), 
+                ANumber(0.15)))
+  }
+
+  it should "reduce a matrix with -" in {
+    assert(same(exec(List(AOperator("-"), AOperator("/"),
+                          AMatrix(Array(Array(2.0, 3.0), Array(4.0, 2.0))))), 
+                AVector(Array(-1.0, 2.0))))
+  }
+
+  it should "reduce a matrix with div" in {
+    assert(same(exec(List(AOperator("div"), AOperator("/"),
+                          AMatrix(Array(Array(2.0, 3.0), Array(4.0, 2.0))))), 
+                AVector(Array(2.0/3.0, 4.0/2.0))))
+  }
+
 
 
 

@@ -32,18 +32,13 @@ object Main {
       val line = readLine()   // no prompt is given
       if(line.size == 0) return;
       val tokens = matchPat(line)
-      val d = List(ASymbol("x"), AOperator("+"), ANumber(3.0), AOperator("mul"), ASymbol("x"), Assign, ANumber(7.0))
+      val d = List(AMatrix(Array(Array(2.0, 3.0), Array(4.0, 1.0))), 
+                          AOperator("+"), AOperator("."), AOperator("mul"),
+                          AMatrix(Array(Array(1.0, 5.0), Array(2.0, 2.0))))
       val lineObjs = Some(d)//tokensToAObjs(tokens)
 
-      var a = 7
-      val c = Array(2, 2)
-      val b = (0 until c(0)).map(x => (0 until c(1)).map(y => 4).toArray).toArray
-
-      def printMatrix(x: AObject): Unit = x match {
-        case AMatrix(m) => {println(m); m.map(x => println(x.mkString(",")))}
-      }
-
-      
+      var a = AMatrix(Array(Array(2.0, 3.0), Array(2.0, 3.0), Array(2.0, 3.0)))
+      val c = AMatrix(Array(Array(2.0, 3.0, 4.0), Array(2.0, 3.0, 3.0)))
 
 
 
