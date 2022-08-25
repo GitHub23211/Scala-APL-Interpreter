@@ -1,0 +1,6 @@
+                          case List(AOperator(op), ASymbol(s)) :: t => evalWithRightArg(applyDyadicOperation(op, rightArg, getValue(s)), t)
+                          case List(AOperator("/"), AOperator(op)) :: t => evalWithRightArg(applyReductiveOperation(op, rightArg), t)
+                          case List(AOperator(f), AOperator("."), AOperator(g)) :: t => applyInnerProduct(g, f, rightArg, lineObjs(3))
+                          case List(AOperator(op), AOperator(_)) :: t => evalWithRightArg(applyMonadicOperation(op, rightArg), t)
+                          case List(AOperator(op), _) :: t => evalWithRightArg(applyDyadicOperation(op, rightArg, lineObjs.tail.head), t)
+                          case List(Assign, ASymbol(s)) :: t => {setValue(s, rightArg); evalWithRightArg(getValue(s), t);}

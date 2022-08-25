@@ -198,7 +198,7 @@ object Interpret {
     case _ => (lineObjs.head, lineObjs.tail.head) match {
                           case (AOperator(op), ASymbol(s)) => evalWithRightArg(applyDyadicOperation(op, rightArg, getValue(s)), lineObjs.tail.tail)
                           case (AOperator("/"), AOperator(op)) => evalWithRightArg(applyReductiveOperation(op, rightArg), lineObjs.tail.tail)
-                          case (AOperator(op), AOperator(".")) => applyInnerProduct("+", op, rightArg, lineObjs(3))
+                          case (AOperator(op), AOperator(".")) => applyInnerProduct("+", op, lineObjs(3), rightArg)
                           case (AOperator(op), AOperator(_)) => evalWithRightArg(applyMonadicOperation(op, rightArg), lineObjs.tail)
                           case (AOperator(op), _) => evalWithRightArg(applyDyadicOperation(op, rightArg, lineObjs.tail.head), lineObjs.tail.tail)
                           case (Assign, ASymbol(s)) => {setValue(s, rightArg); evalWithRightArg(getValue(s), lineObjs.tail.tail);}
@@ -295,12 +295,12 @@ object Interpret {
   def applyInnerProduct(g:String, f:String, a:AObject, b:AObject):AObject =
    (g, f) match {
     case ("+", "mul") => innerProductOp(dyadicMul, reductivePlus, a, b)
-    case ("mul", "+") => innerProductOp(dyadicMul, reductivePlus, a, b)
+    case ("mul", "+") => innerProductOp(dyadicPlus, reductiveMul, a, b)
    }
 
   def innerProductOp(g:(Double, Double) => Double, f:Array[Double] => Double, a:AObject, b:AObject):AObject =
     (a, b) match {
-      case (AMatrix(m1), AMatrix(m2)) => AMatrix((0 until m1.length).map(k => (0 until m1.length).map(i => f((0 until m1(i).length).map(j => g(m1(i)(j), m2(j)(k))).toArray)).toArray).toArray)
+      case (AMatrix(m1), AMatrix(m2)) => AMatrix((0 until m1.length).map(k => (0 until m1.length).map(i => f((0 until m1(i).length).map(j => g(m1(k)(j), m2(j)(i))).toArray)).toArray).toArray)
     }
 
   def monadicOp(operation:Double => Double, a:AObject):AObject = 

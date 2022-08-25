@@ -37,8 +37,9 @@ object Main {
                           AMatrix(Array(Array(1.0, 5.0), Array(2.0, 2.0))))
       val lineObjs = Some(d)//tokensToAObjs(tokens)
 
-      var a = AMatrix(Array(Array(2.0, 3.0), Array(2.0, 3.0), Array(2.0, 3.0)))
-      val c = AMatrix(Array(Array(2.0, 3.0, 4.0), Array(2.0, 3.0, 3.0)))
+      var a = AMatrix(Array(Array(2.0, 3.0), Array(4.0, 1.0)))
+      val c = AMatrix(Array(Array(1.0, 5.0), Array(2.0, 2.0)))
+
 
 
 

@@ -45,13 +45,12 @@
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:20)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- should do inner product *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  TokensTests.this.same(Interpret.exec(scala.collection.immutable.List.apply[Product with Serializable with org.mq.interpret.Interpret.AObject](Interpret.AMatrix.apply(scala.Array.apply[Array[Double]](scala.Array.apply(2.0, 3.0), scala.Array.apply(4.0, 1.0))((ClassTag.apply[Array[Double]](scala.runtime.ScalaRunTime.arrayClass(classOf[scala.Double])): scala.reflect.ClassTag[Array[Double]]))), Interpret.AOperator.apply("+"), Interpret.AOperator.apply("."), Interpret.AOperator.apply("mul"), Interpret.AMatrix.apply(scala.Array.apply[Array[Double]](scala.Array.apply(1.0, 5.0), scala.Array.apply(2.0, 2.0))((ClassTag.apply[Array[Double]](scala.runtime.ScalaRunTime.arrayClass(classOf[scala.Double])): scala.reflect.ClassTag[Array[Double]]))))), Interpret.AMatrix.apply(scala.Array.apply[Array[Double]](scala.Array.apply(8.0, 16.0), scala.Array.apply(6.0, 22.0))((ClassTag.apply[Array[Double]](scala.runtime.ScalaRunTime.arrayClass(classOf[scala.Double])): scala.reflect.ClassTag[Array[Double]])))) was false (InterpretTests.scala:199)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should do inner product[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mFULL EVAL:[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m- should handle bracketted expressions *** FAILED ***[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  TokensTests.this.same(Interpret.exec(scala.collection.immutable.List.apply[Product with Serializable with org.mq.interpret.Interpret.AObject](Interpret.LRBrac, Interpret.ANumber.apply(3.0), Interpret.AOperator.apply("mul"), Interpret.ANumber.apply(4.0), Interpret.RRBrac, Interpret.AOperator.apply("+"), Interpret.ANumber.apply(5.0))), Interpret.ANumber.apply(17.0)) was false (InterpretTests.scala:206)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m- should handle complex expressions *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  scala.MatchError: (org.mq.interpret.Interpret$AVector@a025bb5b,RRBrac) (of class scala.Tuple2)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  scala.MatchError: (org.mq.interpret.Interpret$AVector@edb93ff,RRBrac) (of class scala.Tuple2)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.dyadicTake(Interpret.scala:387)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.applyDyadicOperation(Interpret.scala:261)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:203)[0m[0m
