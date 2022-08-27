@@ -35,23 +35,21 @@
 [0m[[0m[0minfo[0m] [0m[0m[32m- should do outer product[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should do inner product[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mFULL EVAL:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- should handle bracketted expressions *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  TokensTests.this.same(Interpret.exec(scala.collection.immutable.List.apply[Product with Serializable with org.mq.interpret.Interpret.AObject](Interpret.LRBrac, Interpret.ANumber.apply(3.0), Interpret.AOperator.apply("mul"), Interpret.ANumber.apply(4.0), Interpret.RRBrac, Interpret.AOperator.apply("+"), Interpret.ANumber.apply(5.0))), Interpret.ANumber.apply(17.0)) was false (InterpretTests.scala:206)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- should handle complex expressions *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  scala.MatchError: (org.mq.interpret.Interpret$AVector@4cb7a2fd,RRBrac) (of class scala.Tuple2)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.dyadicTake(Interpret.scala:395)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.applyDyadicOperation(Interpret.scala:260)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:204)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should handle bracketted expressions[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should handle complex expressions[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- should handle complex expressions - primes *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  scala.MatchError: (AOperator(out),mul) (of class scala.Tuple2)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.applyInnerProduct(Interpret.scala:298)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:202)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.eval(Interpret.scala:170)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:199)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.eval(Interpret.scala:173)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.exec(Interpret.scala:150)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.TokensTests.$anonfun$new$30(InterpretTests.scala:215)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.TokensTests.$anonfun$new$31(InterpretTests.scala:225)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf(OutcomeOf.scala:85)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf$(OutcomeOf.scala:83)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- should handle complex expressions - primes *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  TokensTests.this.same(Interpret.exec(scala.collection.immutable.List.apply[Product with Serializable with org.mq.interpret.Interpret.AObject](Interpret.LRBrac, Interpret.AOperator.apply("~"), Interpret.ASymbol.apply("r"), Interpret.AOperator.apply("mem"), Interpret.ASymbol.apply("r"), Interpret.AOperator.apply("out"), Interpret.AOperator.apply("."), Interpret.AOperator.apply("mul"), Interpret.ASymbol.apply("r"), Interpret.RRBrac, Interpret.AOperator.apply("/"), Interpret.ASymbol.apply("r"), Interpret.Assign, Interpret.ANumber.apply(1.0), Interpret.AOperator.apply("drop"), Interpret.AOperator.apply("iota"), Interpret.ANumber.apply(20.0))), Interpret.AVector.apply(scala.Array.apply(2.0, 3.0, 5.0, 7.0, 11.0, 13.0, 17.0, 19.0))) was false (InterpretTests.scala:220)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mCUSTOM TEST CASES[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should return Assign for <-[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should return LRBrac for ([0m[0m

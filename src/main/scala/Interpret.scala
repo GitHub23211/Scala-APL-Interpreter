@@ -167,7 +167,7 @@ object Interpret {
   case 1 => eval1(lineObjs.head)
   case _ => if(lineObjs(0) == RRBrac)
             {
-              err("TO DO")   // TO DO: handle bracketted expression
+              evalWithRightArg(eval1(lineObjs(1)), lineObjs.tail.tail.takeWhile(_ != LRBrac))
             }
             else
               evalWithRightArg(eval1(lineObjs.head), lineObjs.tail)
@@ -182,7 +182,7 @@ object Interpret {
     // if rightArg is an error object then don't try to evaluate the rest
     // of the line; instead, return this error
     if(isError(rightArg)) return rightArg
-    println(rightArg + " | " + lineObjs)
+    // println(rightArg + " | " + lineObjs + " | " + lineObjs.tail)
 
     lineObjs.size match
     {
@@ -196,6 +196,7 @@ object Interpret {
                               case _ => err("Error occurred")
                             } 
     case _ => (lineObjs.head, lineObjs.tail.head) match {
+                          case (AOperator(op), RRBrac) => evalWithRightArg(applyDyadicOperation(op, rightArg, eval(lineObjs.tail)), lineObjs.dropWhile(_ != LRBrac).tail)
                           case (AOperator(op), ASymbol(s)) => evalWithRightArg(applyDyadicOperation(op, rightArg, getValue(s)), lineObjs.tail.tail)
                           case (AOperator("/"), AOperator(op)) => evalWithRightArg(applyReductiveOperation(op, rightArg), lineObjs.tail.tail)
                           case (AOperator(g), AOperator(".")) => evalWithRightArg(applyInnerProduct((0 until 2).map(i => lineObjs.tail.tail(i)).toList, g, rightArg), (2 until lineObjs.tail.tail.length).map(i => lineObjs.tail.tail(i)).toList)

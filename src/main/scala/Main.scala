@@ -32,9 +32,8 @@ object Main {
       val line = readLine()   // no prompt is given
       if(line.size == 0) return;
       val tokens = matchPat(line)
-      val d = List(AMatrix(Array(Array(2.0, 3.0), Array(4.0, 1.0))), 
-                          AOperator("+"), AOperator("."), AOperator("mul"),
-                          AMatrix(Array(Array(1.0, 5.0), Array(2.0, 2.0))))
+      val d = List(LRBrac, ANumber(3.0), AOperator("mul"), ANumber(4.0),
+                          RRBrac, AOperator("+"), ANumber(5.0))
       val lineObjs = Some(d)//tokensToAObjs(tokens)
 
       var a = AMatrix(Array(Array(2.0, 3.0), Array(4.0, 1.0)))
