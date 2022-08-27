@@ -37,19 +37,7 @@
 [0m[[0m[0minfo[0m] [0m[0m[32mFULL EVAL:[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should handle bracketted expressions[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should handle complex expressions[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- should handle complex expressions - primes *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  scala.MatchError: (AOperator(out),mul) (of class scala.Tuple2)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.applyInnerProduct(Interpret.scala:298)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:202)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.eval(Interpret.scala:170)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:199)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.eval(Interpret.scala:173)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.exec(Interpret.scala:150)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.TokensTests.$anonfun$new$31(InterpretTests.scala:225)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf(OutcomeOf.scala:85)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf$(OutcomeOf.scala:83)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should handle complex expressions - primes[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mCUSTOM TEST CASES[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should return Assign for <-[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should return LRBrac for ([0m[0m

@@ -165,3 +165,17 @@ run
 +1
 run
 test
+run
+test
+run
+      case(AOperator("out"), "+") => outerProductOp(dyadicPlus, leftArg, a)run
+run
+test
+run
+test
+run
+test
+run
+test
+run
+test

@@ -182,7 +182,8 @@ object Interpret {
     // if rightArg is an error object then don't try to evaluate the rest
     // of the line; instead, return this error
     if(isError(rightArg)) return rightArg
-    // println(rightArg + " | " + lineObjs + " | " + lineObjs.tail)
+    println(rightArg + " | " + lineObjs)// + " | " + lineObjs.tail)
+    println("End of line")
 
     lineObjs.size match
     {
@@ -256,6 +257,7 @@ object Interpret {
         case "|" => dyadicOP(dyadicMod, x, y)
         case "flr" => dyadicOP(dyadicFlr, x, y)
         case "ceil" => dyadicOP(dyadicCeil, x, y)
+        case "/" => dyadicSelect(x, y)
         case "mem" => dyadicMem(x, y)
         case "rho" => dyadicRho(x, y)
         case "take" => dyadicTake(x, y)
@@ -272,7 +274,7 @@ object Interpret {
         case "|" => monadicOp(monadicMod, x)
         case "flr" => monadicOp(monadicFlr, x)
         case "ceil" => monadicOp(monadicCeil, x)
-        case "~" => monadicOp(logicalNOT, x)
+        case "~" => logicalNot(x)
         case "iota" => monadicIota(x)
         case "rho" => monadicRho(x)
         case _ => err("Error in applyMonadicOperation occurred")
@@ -294,10 +296,11 @@ object Interpret {
 
   def applyInnerProduct(list:List[AObject], f:String, a:AObject):AObject = {
       val g = list(0)
-      val leftArg = list(1)
+      val leftArg = eval1(list(1))
     (g, f) match {
       case (AOperator("+"), "mul") => innerProductOp(dyadicMul, reductivePlus, leftArg, a)
-      case(AOperator("out"), "+") => outerProductOp(dyadicPlus, leftArg, a)
+      case (AOperator("out"), "+") => outerProductOp(dyadicPlus, leftArg, a)
+      case (AOperator("out"), "mul") => outerProductOp(dyadicMul, leftArg, a)
     }
   }
    
@@ -372,7 +375,13 @@ object Interpret {
   def dyadicCeil(a:Double, b:Double):Double = a max b
   def reductiveCeil(a:Array[Double]):Double = a.reduce(_ max _)
 
-  def logicalNOT(a:Double):Double = if(a > 0) 0 else if(a < 0) 1 else 0
+  def logicalNot(a:AObject):AObject = 
+    a match {
+      case ANumber(n) => ANumber(logicalNotHelper(n))
+      case AVector(v) => AVector(v.map(n => logicalNotHelper(n)).toArray)
+    }
+  
+  def logicalNotHelper(n:Double):Double = if(n > 0) 0 else if(n <= 0) 1 else 0
 
   def monadicIota(a:AObject):AVector = a match {
     case ANumber(n) => AVector((1.0 to n by 1.0).toArray)
@@ -386,11 +395,23 @@ object Interpret {
       case AMatrix(m) => AVector(Array(m.length, m.head.length))
     }
 
-  def dyadicMem(a:AObject, b:AObject):ANumber = 
+  def dyadicMem(a:AObject, b:AObject):AObject = 
     (a, b) match {
       case (ANumber(n), AVector(v)) => if (v.contains(n)) ANumber(1) else ANumber(0)
       case (AVector(v), ANumber(n)) => if (v.contains(n)) ANumber(1) else ANumber(0)
+      case (AMatrix(m), AVector(v)) => {val x = v.map(n => memHelper(n, m)).toList; println(x); AVector(x.toArray)}
     }
+  
+  def memHelper(n:Double, m:Array[Array[Double]]):Double = {
+    for(i <- 0 until m.length) {
+      for(j <- 0 until m(i).length) {
+        if(m(i)(j) == n)
+          return 1.0
+      }
+    }
+    return 0.0
+  }
+
   
   def dyadicTake(a:AObject, b:AObject):AVector = 
     (a, b) match {
@@ -411,4 +432,10 @@ object Interpret {
       case (AVector(v), ANumber(n)) => AVector((0 until getInt(n)).map(x => v(x % v.length)).toArray)
       case (AVector(v1), AVector(v2)) => AMatrix((0 until getInt(v2(0))).map(x => ((getInt(v2(1)) * x) until (getInt(v2(1)) * (x + 1))).map(y => v1(y % v1.length)).toArray).toArray)
     }
+
+  def dyadicSelect(a:AObject, b:AObject):AObject = 
+    (a, b) match {
+      case (AVector(v1), AVector(v2)) => AVector((0 until v2.length).map(i => if(v2(i) == 1) v1(i) else 0.0).filter(_ > 0).toArray)
+    }
+
 }
