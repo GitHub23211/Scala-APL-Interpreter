@@ -33,8 +33,8 @@ object Main {
       if(line.size == 0) return;
       val tokens = matchPat(line)
       val d = List(AVector(Array(1.0, 2.0)), 
-                          AOperator("flr"), AOperator("."), AOperator("mul"),
-                          AMatrix(Array(Array(1.0, 2.0), Array(3.0, 4.0))))
+                          AOperator("mul"), AOperator("."), AOperator("flr"),
+                          AMatrix(Array(Array(1.0, 2.0, 3.0), Array(3.0, 4.0, 4.0))))
       val lineObjs = Some(d)//tokensToAObjs(tokens) //
 
       lineObjs match

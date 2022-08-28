@@ -406,15 +406,15 @@ class TokensTests extends FlatSpec with Matchers {
   it should "calculate inner product (mul then +) of a vector and matrix" in {
     assert(same(exec(List(AVector(Array(1.0, 2.0)), 
                           AOperator("+"), AOperator("."), AOperator("mul"),
-                          AMatrix(Array(Array(1.0, 2.0), Array(3.0, 4.0))))), 
-                AVector(Array(7.0, 10.0))))
+                          AMatrix(Array(Array(1.0, 2.0, 3.0), Array(3.0, 4.0, 4.0))))), 
+                AVector(Array(7.0, 10.0, 11.0))))
   }
 
   it should "calculate inner product (flr then mul) of a vector and matrix" in {
     assert(same(exec(List(AVector(Array(1.0, 2.0)), 
                           AOperator("mul"), AOperator("."), AOperator("flr"),
-                          AMatrix(Array(Array(1.0, 2.0), Array(3.0, 4.0))))), 
-                AVector(Array(2.0, 2.0))))
+                          AMatrix(Array(Array(1.0, 2.0, 3.0), Array(3.0, 4.0, 4.0))))), 
+                AVector(Array(2.0, 2.0, 2.0))))
   }
 
   "OUTER PRODUCT:" should "calculate outer product of two vectors (mul)" in {

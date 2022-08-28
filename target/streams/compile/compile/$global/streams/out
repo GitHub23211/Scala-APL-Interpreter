@@ -14,38 +14,38 @@
 [0m[[0m[33mwarn[0m] [0m[0m(Please try with scalac -Ypatmat-exhaust-depth 40 or -Ypatmat-exhaust-depth off.)[0m
 [0m[[0m[33mwarn[0m] [0m[0m    (g, f) match {[0m
 [0m[[0m[33mwarn[0m] [0m[0m    ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:370:5: Exhaustivity analysis reached max recursion depth, not all missing cases are reported.[0m
-[0m[[0m[33mwarn[0m] [0m[0m(Please try with scalac -Ypatmat-exhaust-depth 40 or -Ypatmat-exhaust-depth off.)[0m
+[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:374:5: match may not be exhaustive.[0m
+[0m[[0m[33mwarn[0m] [0m[0mIt would fail on the following inputs: ("/", ANumber(_)), ("/", AOperator(_)), ("/", ASymbol(_)), ("/", Assign), ("/", LRBrac), ("/", RRBrac), ("rdc", ANumber(_)), ("rdc", AOperator(_)), ("rdc", ASymbol(_)), ("rdc", Assign), ("rdc", LRBrac), ("rdc", RRBrac), (String(), ANumber(_)), (String(), AOperator(_)), (String(), ASymbol(_)), (String(), Assign), (String(), LRBrac), (String(), RRBrac), (_, AMatrix(_)), (_, ANumber(_)), (_, AOperator(_)), (_, ASymbol(_)), (_, AVector(_)), (_, Assign), (_, LRBrac), (_, RRBrac)[0m
 [0m[[0m[33mwarn[0m] [0m[0m    (rdc, a) match {[0m
 [0m[[0m[33mwarn[0m] [0m[0m    ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:381:5: Exhaustivity analysis reached max recursion depth, not all missing cases are reported.[0m
+[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:385:5: Exhaustivity analysis reached max recursion depth, not all missing cases are reported.[0m
 [0m[[0m[33mwarn[0m] [0m[0m(Please try with scalac -Ypatmat-exhaust-depth 40 or -Ypatmat-exhaust-depth off.)[0m
 [0m[[0m[33mwarn[0m] [0m[0m    (a, b) match {[0m
 [0m[[0m[33mwarn[0m] [0m[0m    ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:391:5: Exhaustivity analysis reached max recursion depth, not all missing cases are reported.[0m
+[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:395:5: Exhaustivity analysis reached max recursion depth, not all missing cases are reported.[0m
 [0m[[0m[33mwarn[0m] [0m[0m(Please try with scalac -Ypatmat-exhaust-depth 40 or -Ypatmat-exhaust-depth off.)[0m
 [0m[[0m[33mwarn[0m] [0m[0m    (a, b) match {[0m
 [0m[[0m[33mwarn[0m] [0m[0m    ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:433:5: match may not be exhaustive.[0m
+[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:437:5: match may not be exhaustive.[0m
 [0m[[0m[33mwarn[0m] [0m[0mIt would fail on the following inputs: AOperator(_), ASymbol(_), Assign, LRBrac, RRBrac[0m
 [0m[[0m[33mwarn[0m] [0m[0m    a match {[0m
 [0m[[0m[33mwarn[0m] [0m[0m    ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:440:5: Exhaustivity analysis reached max recursion depth, not all missing cases are reported.[0m
+[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:444:5: Exhaustivity analysis reached max recursion depth, not all missing cases are reported.[0m
 [0m[[0m[33mwarn[0m] [0m[0m(Please try with scalac -Ypatmat-exhaust-depth 40 or -Ypatmat-exhaust-depth off.)[0m
 [0m[[0m[33mwarn[0m] [0m[0m    (a, b) match {[0m
 [0m[[0m[33mwarn[0m] [0m[0m    ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:470:5: Exhaustivity analysis reached max recursion depth, not all missing cases are reported.[0m
+[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:474:5: Exhaustivity analysis reached max recursion depth, not all missing cases are reported.[0m
 [0m[[0m[33mwarn[0m] [0m[0m(Please try with scalac -Ypatmat-exhaust-depth 40 or -Ypatmat-exhaust-depth off.)[0m
 [0m[[0m[33mwarn[0m] [0m[0m    (a, b) match {[0m
 [0m[[0m[33mwarn[0m] [0m[0m    ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:478:5: Exhaustivity analysis reached max recursion depth, not all missing cases are reported.[0m
+[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:482:5: Exhaustivity analysis reached max recursion depth, not all missing cases are reported.[0m
 [0m[[0m[33mwarn[0m] [0m[0m(Please try with scalac -Ypatmat-exhaust-depth 40 or -Ypatmat-exhaust-depth off.)[0m
 [0m[[0m[33mwarn[0m] [0m[0m    (a, b) match {[0m
 [0m[[0m[33mwarn[0m] [0m[0m    ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:428:37: method to in trait FractionalProxy is deprecated (since 2.12.6): use BigDecimal range instead[0m
+[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:432:37: method to in trait FractionalProxy is deprecated (since 2.12.6): use BigDecimal range instead[0m
 [0m[[0m[33mwarn[0m] [0m[0m    case ANumber(n) => AVector((1.0 to n by 1.0).toArray)[0m
 [0m[[0m[33mwarn[0m] [0m[0m                                    ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:429:55: method to in trait FractionalProxy is deprecated (since 2.12.6): use BigDecimal range instead[0m
+[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:433:55: method to in trait FractionalProxy is deprecated (since 2.12.6): use BigDecimal range instead[0m
 [0m[[0m[33mwarn[0m] [0m[0m    case AVector(v) if(v.length == 1) => AVector((1.0 to v.head by 1.0).toArray)[0m
 [0m[[0m[33mwarn[0m] [0m[0m                                                      ^[0m
 [0m[[0m[33mwarn[0m] [0m[0m14 warnings found[0m
