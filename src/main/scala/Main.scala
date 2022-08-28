@@ -32,10 +32,12 @@ object Main {
       val line = readLine()   // no prompt is given
       if(line.size == 0) return;
       val tokens = matchPat(line)
-      val d = List(AVector(Array(5.0, 1.0, 2.0)), AOperator("+"),
-                          LRBrac, ANumber(4.0), AOperator("|"), ANumber(5.0),
-                          RRBrac, AOperator("take"), ANumber(2.0),
-                          AOperator("drop"), AOperator("iota"), ANumber(5.0))
+      val d = List(LRBrac, AOperator("~"), ASymbol("r"),
+                          AOperator("mem"), ASymbol("r"), AOperator("out"),
+                          AOperator("."), AOperator("mul"), ASymbol("r"),
+                          RRBrac, AOperator("/"), ASymbol("r"), Assign,
+                          ANumber(1.0), AOperator("drop"), AOperator("iota"),
+                          ANumber(20))
       val lineObjs = Some(d)//tokensToAObjs(tokens) //
 
       lineObjs match

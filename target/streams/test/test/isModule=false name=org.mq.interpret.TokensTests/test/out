@@ -73,35 +73,15 @@
 [0m[[0m[0minfo[0m] [0m[0m[32m- should find minimum[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should find maximum[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mINNER PRODUCT:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should calculate inner product then add to matrix[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should calculate inner product (mul then +) then add to matrix[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should calculate inner product (+ then mul) then add to matrix[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should calculate inner product (ceil then flr) then add to matrix[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mOUTER PRODUCT:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should calculate inner product then add to matrix[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should calculate outer product of two vectors (mul)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should calculate outer product of two vectors (flr)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mREDUCTIVE OPERATOR:[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should reduce columns of matrix with rdc[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should reduce columns of matrix with rdc then operate on result[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mBRACKETS:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- should do multiple brackets *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  scala.MatchError: (ASymbol(ERROR eval1),org.mq.interpret.Interpret$AVector@e13fae08) (of class scala.Tuple2)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.outerProductOp(Interpret.scala:378)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.applyInnerProduct(Interpret.scala:331)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:233)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.eval(Interpret.scala:202)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.exec(Interpret.scala:179)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.TokensTests.$anonfun$new$65(InterpretTests.scala:407)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf(OutcomeOf.scala:85)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf$(OutcomeOf.scala:83)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- should do nested brackets *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  java.lang.UnsupportedOperationException: tail of empty list[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.collection.immutable.Nil$.tail(List.scala:432)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.collection.immutable.Nil$.tail(List.scala:427)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:230)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.eval(Interpret.scala:199)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:230)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.eval(Interpret.scala:202)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.Interpret$.exec(Interpret.scala:179)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.mq.interpret.TokensTests.$anonfun$new$66(InterpretTests.scala:412)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf(OutcomeOf.scala:85)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf$(OutcomeOf.scala:83)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should do multiple brackets[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should do nested brackets[0m[0m

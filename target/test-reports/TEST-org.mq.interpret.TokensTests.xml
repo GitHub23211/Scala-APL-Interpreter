@@ -1,20 +1,20 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<testsuite hostname="Joshua-Desktop" name="org.mq.interpret.TokensTests" tests="66" errors="0" failures="2" skipped="0" time="0.127" timestamp="2022-08-28T22:09:21">
+<testsuite hostname="Joshua-Desktop" name="org.mq.interpret.TokensTests" tests="70" errors="0" failures="0" skipped="0" time="0.05" timestamp="2022-08-28T23:07:58">
                      <properties>
       <property name="jline.esc.timeout" value="0"/><property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/><property name="sun.boot.library.path" value="C:\Program Files\Java\jre1.8.0_341\bin"/><property name="java.vm.version" value="25.341-b10"/><property name="java.vm.vendor" value="Oracle Corporation"/><property name="java.vendor.url" value="http://java.oracle.com/"/><property name="path.separator" value=";"/><property name="jna.loaded" value="true"/><property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/><property name="file.encoding.pkg" value="sun.io"/><property name="user.country" value="AU"/><property name="user.script" value=""/><property name="sun.java.launcher" value="SUN_STANDARD"/><property name="sun.os.patch.level" value=""/><property name="jna.nosys" value="true"/><property name="java.vm.specification.name" value="Java Virtual Machine Specification"/><property name="user.dir" value="D:\Uni Stuff\IT\COMP3000\Assignment 1"/><property name="java.runtime.version" value="1.8.0_341-b10"/><property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/><property name="java.endorsed.dirs" value="C:\Program Files\Java\jre1.8.0_341\lib\endorsed"/><property name="os.arch" value="amd64"/><property name="java.io.tmpdir" value="C:\Users\Joshua\AppData\Local\Temp\"/><property name="line.separator" value="
 "/><property name="java.vm.specification.vendor" value="Oracle Corporation"/><property name="user.variant" value=""/><property name="os.name" value="Windows 10"/><property name="sun.jnu.encoding" value="Cp1252"/><property name="jnidispatch.path" value="C:\Users\Joshua\AppData\Local\Temp\jna--2070369658\jna8591386818910977603.dll"/><property name="java.library.path" value="C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\AdoptOpenJDK\jdk-11.0.11.9-hotspot\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\PuTTY\;C:\Program Files\Eclipse Foundation\jdk-17.0.0.35-hotspot\bin;C:\Users\Joshua\AppData\Local\Programs\Python\Python39\Scripts;C:\Program Files\nodejs\;C:\Users\Joshua\AppData\Local\Microsoft\WindowsApps;C:\Users\Joshua\AppData\Local\GitHubDesktop\bin;C:\Users\Joshua\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Joshua\AppData\Roaming\npm;."/><property name="java.specification.name" value="Java Platform API Specification"/><property name="java.class.version" value="52.0"/><property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/><property name="os.version" value="10.0"/><property name="user.home" value="C:\Users\Joshua"/><property name="user.timezone" value="Australia/Sydney"/><property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/><property name="file.encoding" value="Cp1252"/><property name="java.specification.version" value="1.8"/><property name="java.class.path" value="D:\Uni Stuff\IT\COMP3000\Assignment 1\sbt-launch.jar"/><property name="user.name" value="Joshua"/><property name="jline.shutdownhook" value="false"/><property name="java.vm.specification.version" value="1.8"/><property name="sun.java.command" value="xsbt.boot.Boot"/><property name="java.home" value="C:\Program Files\Java\jre1.8.0_341"/><property name="sun.arch.data.model" value="64"/><property name="user.language" value="en"/><property name="java.specification.vendor" value="Oracle Corporation"/><property name="awt.toolkit" value="sun.awt.windows.WToolkit"/><property name="java.vm.info" value="mixed mode"/><property name="java.version" value="1.8.0_341"/><property name="java.ext.dirs" value="C:\Program Files\Java\jre1.8.0_341\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/><property name="sun.boot.class.path" value="C:\Program Files\Java\jre1.8.0_341\lib\resources.jar;C:\Program Files\Java\jre1.8.0_341\lib\rt.jar;C:\Program Files\Java\jre1.8.0_341\lib\jsse.jar;C:\Program Files\Java\jre1.8.0_341\lib\jce.jar;C:\Program Files\Java\jre1.8.0_341\lib\charsets.jar;C:\Program Files\Java\jre1.8.0_341\lib\jfr.jar;C:\Program Files\Java\jre1.8.0_341\classes"/><property name="java.vendor" value="Oracle Corporation"/><property name="sun.stderr.encoding" value="cp850"/><property name="file.separator" value="\"/><property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/><property name="sun.io.unicode.encoding" value="UnicodeLittle"/><property name="sun.cpu.endian" value="little"/><property name="sun.stdout.encoding" value="cp850"/><property name="sun.desktop" value="windows"/><property name="sun.cpu.isalist" value="amd64"/>
     </properties>
-                     <testcase classname="org.mq.interpret.TokensTests" name="PARSING: pattern match should handle a number" time="0.018">
+                     <testcase classname="org.mq.interpret.TokensTests" name="PARSING: pattern match should handle a number" time="0.019">
                                                  
                                                </testcase><testcase classname="org.mq.interpret.TokensTests" name="PARSING: pattern match should handle negative number" time="0.0">
                                                  
                                                </testcase><testcase classname="org.mq.interpret.TokensTests" name="PARSING: pattern match should handle function symbols" time="0.0">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="PARSING: pattern match should handle names" time="0.001">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="PARSING: pattern match should handle names" time="0.0">
                                                  
                                                </testcase><testcase classname="org.mq.interpret.TokensTests" name="PARSING: pattern match should handle composite symbols" time="0.0">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="strToAObj should handle a name" time="0.001">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="strToAObj should handle a name" time="0.0">
                                                  
                                                </testcase><testcase classname="org.mq.interpret.TokensTests" name="strToAObj should handle a number" time="0.0">
                                                  
@@ -22,59 +22,59 @@
                                                  
                                                </testcase><testcase classname="org.mq.interpret.TokensTests" name="strToAObj should handle an operator" time="0.0">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="tokensToAObjs should handle a single name" time="0.001">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="tokensToAObjs should handle a single name" time="0.0">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="tokensToAObjs should handle a single number" time="0.0">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="tokensToAObjs should handle a single number" time="0.001">
                                                  
                                                </testcase><testcase classname="org.mq.interpret.TokensTests" name="tokensToAObjs should handle a simple expression" time="0.0">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="tokensToAObjs should handle a more-complex expression" time="0.001">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="tokensToAObjs should handle a more-complex expression" time="0.0">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="SIMPLE EVAL: should add two numbers" time="0.002">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="SIMPLE EVAL: should add two numbers" time="0.001">
                                                  
                                                </testcase><testcase classname="org.mq.interpret.TokensTests" name="SIMPLE EVAL: should mod two numbers" time="0.001">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="SIMPLE EVAL: should do iota number" time="0.002">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="SIMPLE EVAL: should do iota number" time="0.0">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="SIMPLE EVAL: should do membership" time="0.004">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="SIMPLE EVAL: should do membership" time="0.0">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="SIMPLE EVAL: should do monadic rho" time="0.001">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="SIMPLE EVAL: should do monadic rho" time="0.0">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="SIMPLE EVAL: should do dyadic rho" time="0.004">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="SIMPLE EVAL: should do dyadic rho" time="0.002">
                                                  
                                                </testcase><testcase classname="org.mq.interpret.TokensTests" name="SIMPLE EVAL: should do take" time="0.0">
                                                  
                                                </testcase><testcase classname="org.mq.interpret.TokensTests" name="MIXED SHAPE: should add number and vector" time="0.001">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="MIXED SHAPE: should treat one-element vector as scalar" time="0.004">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="MIXED SHAPE: should treat one-element vector as scalar" time="0.0">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="MIXED SHAPE: should max vector and vector" time="0.002">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="MIXED SHAPE: should max vector and vector" time="0.001">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="VARIABLES: should work" time="0.002">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="VARIABLES: should work" time="0.001">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="OPERATORS: should reduce a vector with +" time="0.002">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="OPERATORS: should reduce a vector with +" time="0.001">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="OPERATORS: should reduce a matrix with mul" time="0.002">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="OPERATORS: should reduce a matrix with mul" time="0.001">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="OPERATORS: should do outer product" time="0.006">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="OPERATORS: should do outer product" time="0.001">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="OPERATORS: should do inner product" time="0.003">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="OPERATORS: should do inner product" time="0.001">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="FULL EVAL: should handle bracketted expressions" time="0.002">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="FULL EVAL: should handle bracketted expressions" time="0.001">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="FULL EVAL: should handle complex expressions" time="0.003">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="FULL EVAL: should handle complex expressions" time="0.0">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="FULL EVAL: should handle complex expressions - primes" time="0.016">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="FULL EVAL: should handle complex expressions - primes" time="0.003">
                                                  
                                                </testcase><testcase classname="org.mq.interpret.TokensTests" name="CUSTOM TEST CASES should return Assign for &lt;-" time="0.0">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="CUSTOM TEST CASES should return LRBrac for (" time="0.001">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="CUSTOM TEST CASES should return LRBrac for (" time="0.0">
                                                  
                                                </testcase><testcase classname="org.mq.interpret.TokensTests" name="CUSTOM TEST CASES should return just the number even if there's a +" time="0.0">
                                                  
                                                </testcase><testcase classname="org.mq.interpret.TokensTests" name="CUSTOM TEST CASES should handle a string operators like mul" time="0.0">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="CUSTOM TEST CASES should interpret operations without spaces (mul)" time="0.001">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="CUSTOM TEST CASES should interpret operations without spaces (mul)" time="0.0">
                                                  
                                                </testcase><testcase classname="org.mq.interpret.TokensTests" name="CUSTOM TEST CASES should interpret operations without spaces (+)" time="0.0">
                                                  
@@ -84,7 +84,7 @@
                                                  
                                                </testcase><testcase classname="org.mq.interpret.TokensTests" name="MONADIC FUNCTION TEST CASES should handle monadic operations (+) for AVector" time="0.0">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="MONADIC FUNCTION TEST CASES should handle monadic operations (-) for ANumber" time="0.001">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="MONADIC FUNCTION TEST CASES should handle monadic operations (-) for ANumber" time="0.002">
                                                  
                                                </testcase><testcase classname="org.mq.interpret.TokensTests" name="MONADIC FUNCTION TEST CASES should handle monadic operations (-) for AVector" time="0.0">
                                                  
@@ -92,186 +92,58 @@
                                                  
                                                </testcase><testcase classname="org.mq.interpret.TokensTests" name="MONADIC FUNCTION TEST CASES should floor a number" time="0.001">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="MONADIC FUNCTION TEST CASES should ceil a number" time="0.001">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="MONADIC FUNCTION TEST CASES should ceil a number" time="0.0">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="MONADIC FUNCTION TEST CASES should return abs value" time="0.001">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="MONADIC FUNCTION TEST CASES should return abs value" time="0.0">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="DYADIC FUNCTION TEST CASES should handle summing two matricies" time="0.004">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="DYADIC FUNCTION TEST CASES should handle summing two matricies" time="0.001">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="DYADIC FUNCTION TEST CASES should Number rho number" time="0.001">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="DYADIC FUNCTION TEST CASES should Number rho number" time="0.0">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="DYADIC FUNCTION TEST CASES should Number rho Vector" time="0.002">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="DYADIC FUNCTION TEST CASES should Number rho Vector" time="0.001">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="DYADIC FUNCTION TEST CASES should Vector rho Number" time="0.002">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="DYADIC FUNCTION TEST CASES should Vector rho Number" time="0.001">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="DYADIC FUNCTION TEST CASES should Vector rho Vector" time="0.002">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="DYADIC FUNCTION TEST CASES should Vector rho Vector" time="0.0">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="DYADIC FUNCTION TEST CASES should rho Vector rho Vector" time="0.001">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="DYADIC FUNCTION TEST CASES should rho Vector rho Vector" time="0.0">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="OPERATORS: should reduce a vector with -" time="0.004">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="OPERATORS: should reduce a vector with -" time="0.001">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="OPERATORS: should reduce a vector with div" time="0.002">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="OPERATORS: should reduce a vector with div" time="0.001">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="OPERATORS: should reduce a matrix with -" time="0.002">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="OPERATORS: should reduce a matrix with -" time="0.0">
                                                  
                                                </testcase><testcase classname="org.mq.interpret.TokensTests" name="OPERATORS: should reduce a matrix with div" time="0.001">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="OPERATORS: should do take with negative number" time="0.001">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="OPERATORS: should do take with negative number" time="0.0">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="OPERATORS: should do drop" time="0.001">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="OPERATORS: should do drop" time="0.0">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="OPERATORS: should do drop with negative number" time="0.001">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="OPERATORS: should do drop with negative number" time="0.0">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="OPERATORS: should find minimum" time="0.004">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="OPERATORS: should find minimum" time="0.0">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="OPERATORS: should find maximum" time="0.001">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="OPERATORS: should find maximum" time="0.0">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="INNER PRODUCT: should calculate inner product then add to matrix" time="0.002">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="INNER PRODUCT: should calculate inner product (mul then +) then add to matrix" time="0.0">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="OUTER PRODUCT: should calculate inner product then add to matrix" time="0.002">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="INNER PRODUCT: should calculate inner product (+ then mul) then add to matrix" time="0.001">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="REDUCTIVE OPERATOR: should reduce columns of matrix with rdc" time="0.002">
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="INNER PRODUCT: should calculate inner product (ceil then flr) then add to matrix" time="0.002">
                                                  
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="BRACKETS: should do multiple brackets" time="0.004">
-                                                 <failure message="(ASymbol(ERROR eval1),org.mq.interpret.Interpret$AVector@e13fae08) (of class scala.Tuple2)" type="scala.MatchError">scala.MatchError: (ASymbol(ERROR eval1),org.mq.interpret.Interpret$AVector@e13fae08) (of class scala.Tuple2)
-	at org.mq.interpret.Interpret$.outerProductOp(Interpret.scala:378)
-	at org.mq.interpret.Interpret$.applyInnerProduct(Interpret.scala:331)
-	at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:233)
-	at org.mq.interpret.Interpret$.eval(Interpret.scala:202)
-	at org.mq.interpret.Interpret$.exec(Interpret.scala:179)
-	at org.mq.interpret.TokensTests.$anonfun$new$65(InterpretTests.scala:407)
-	at org.scalatest.OutcomeOf.outcomeOf(OutcomeOf.scala:85)
-	at org.scalatest.OutcomeOf.outcomeOf$(OutcomeOf.scala:83)
-	at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)
-	at org.scalatest.Transformer.apply(Transformer.scala:22)
-	at org.scalatest.Transformer.apply(Transformer.scala:20)
-	at org.scalatest.FlatSpecLike$$anon$5.apply(FlatSpecLike.scala:1682)
-	at org.scalatest.TestSuite.withFixture(TestSuite.scala:196)
-	at org.scalatest.TestSuite.withFixture$(TestSuite.scala:195)
-	at org.scalatest.FlatSpec.withFixture(FlatSpec.scala:1685)
-	at org.scalatest.FlatSpecLike.invokeWithFixture$1(FlatSpecLike.scala:1680)
-	at org.scalatest.FlatSpecLike.$anonfun$runTest$1(FlatSpecLike.scala:1692)
-	at org.scalatest.SuperEngine.runTestImpl(Engine.scala:286)
-	at org.scalatest.FlatSpecLike.runTest(FlatSpecLike.scala:1692)
-	at org.scalatest.FlatSpecLike.runTest$(FlatSpecLike.scala:1674)
-	at org.scalatest.FlatSpec.runTest(FlatSpec.scala:1685)
-	at org.scalatest.FlatSpecLike.$anonfun$runTests$1(FlatSpecLike.scala:1750)
-	at org.scalatest.SuperEngine.$anonfun$runTestsInBranch$1(Engine.scala:393)
-	at scala.collection.immutable.List.foreach(List.scala:392)
-	at org.scalatest.SuperEngine.traverseSubNodes$1(Engine.scala:381)
-	at org.scalatest.SuperEngine.runTestsInBranch(Engine.scala:370)
-	at org.scalatest.SuperEngine.$anonfun$runTestsInBranch$1(Engine.scala:407)
-	at scala.collection.immutable.List.foreach(List.scala:392)
-	at org.scalatest.SuperEngine.traverseSubNodes$1(Engine.scala:381)
-	at org.scalatest.SuperEngine.runTestsInBranch(Engine.scala:376)
-	at org.scalatest.SuperEngine.runTestsImpl(Engine.scala:458)
-	at org.scalatest.FlatSpecLike.runTests(FlatSpecLike.scala:1750)
-	at org.scalatest.FlatSpecLike.runTests$(FlatSpecLike.scala:1749)
-	at org.scalatest.FlatSpec.runTests(FlatSpec.scala:1685)
-	at org.scalatest.Suite.run(Suite.scala:1124)
-	at org.scalatest.Suite.run$(Suite.scala:1106)
-	at org.scalatest.FlatSpec.org$scalatest$FlatSpecLike$$super$run(FlatSpec.scala:1685)
-	at org.scalatest.FlatSpecLike.$anonfun$run$1(FlatSpecLike.scala:1795)
-	at org.scalatest.SuperEngine.runImpl(Engine.scala:518)
-	at org.scalatest.FlatSpecLike.run(FlatSpecLike.scala:1795)
-	at org.scalatest.FlatSpecLike.run$(FlatSpecLike.scala:1793)
-	at org.scalatest.FlatSpec.run(FlatSpec.scala:1685)
-	at org.scalatest.tools.Framework.org$scalatest$tools$Framework$$runSuite(Framework.scala:317)
-	at org.scalatest.tools.Framework$ScalaTestTask.execute(Framework.scala:510)
-	at sbt.TestRunner.runTest$1(TestFramework.scala:113)
-	at sbt.TestRunner.run(TestFramework.scala:124)
-	at sbt.TestFramework$$anon$2$$anonfun$$lessinit$greater$1.$anonfun$apply$1(TestFramework.scala:282)
-	at sbt.TestFramework$.sbt$TestFramework$$withContextLoader(TestFramework.scala:246)
-	at sbt.TestFramework$$anon$2$$anonfun$$lessinit$greater$1.apply(TestFramework.scala:282)
-	at sbt.TestFramework$$anon$2$$anonfun$$lessinit$greater$1.apply(TestFramework.scala:282)
-	at sbt.TestFunction.apply(TestFramework.scala:294)
-	at sbt.Tests$.$anonfun$toTask$1(Tests.scala:309)
-	at sbt.std.Transform$$anon$3.$anonfun$apply$2(System.scala:46)
-	at sbt.std.Transform$$anon$4.work(System.scala:67)
-	at sbt.Execute.$anonfun$submit$2(Execute.scala:269)
-	at sbt.internal.util.ErrorHandling$.wideConvert(ErrorHandling.scala:16)
-	at sbt.Execute.work(Execute.scala:278)
-	at sbt.Execute.$anonfun$submit$1(Execute.scala:269)
-	at sbt.ConcurrentRestrictions$$anon$4.$anonfun$submitValid$1(ConcurrentRestrictions.scala:178)
-	at sbt.CompletionService$$anon$2.call(CompletionService.scala:37)
-	at java.util.concurrent.FutureTask.run(Unknown Source)
-	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
-	at java.util.concurrent.FutureTask.run(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-</failure>
-                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="BRACKETS: should do nested brackets" time="0.001">
-                                                 <failure message="tail of empty list" type="java.lang.UnsupportedOperationException">java.lang.UnsupportedOperationException: tail of empty list
-	at scala.collection.immutable.Nil$.tail(List.scala:432)
-	at scala.collection.immutable.Nil$.tail(List.scala:427)
-	at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:230)
-	at org.mq.interpret.Interpret$.eval(Interpret.scala:199)
-	at org.mq.interpret.Interpret$.evalWithRightArg(Interpret.scala:230)
-	at org.mq.interpret.Interpret$.eval(Interpret.scala:202)
-	at org.mq.interpret.Interpret$.exec(Interpret.scala:179)
-	at org.mq.interpret.TokensTests.$anonfun$new$66(InterpretTests.scala:412)
-	at org.scalatest.OutcomeOf.outcomeOf(OutcomeOf.scala:85)
-	at org.scalatest.OutcomeOf.outcomeOf$(OutcomeOf.scala:83)
-	at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)
-	at org.scalatest.Transformer.apply(Transformer.scala:22)
-	at org.scalatest.Transformer.apply(Transformer.scala:20)
-	at org.scalatest.FlatSpecLike$$anon$5.apply(FlatSpecLike.scala:1682)
-	at org.scalatest.TestSuite.withFixture(TestSuite.scala:196)
-	at org.scalatest.TestSuite.withFixture$(TestSuite.scala:195)
-	at org.scalatest.FlatSpec.withFixture(FlatSpec.scala:1685)
-	at org.scalatest.FlatSpecLike.invokeWithFixture$1(FlatSpecLike.scala:1680)
-	at org.scalatest.FlatSpecLike.$anonfun$runTest$1(FlatSpecLike.scala:1692)
-	at org.scalatest.SuperEngine.runTestImpl(Engine.scala:286)
-	at org.scalatest.FlatSpecLike.runTest(FlatSpecLike.scala:1692)
-	at org.scalatest.FlatSpecLike.runTest$(FlatSpecLike.scala:1674)
-	at org.scalatest.FlatSpec.runTest(FlatSpec.scala:1685)
-	at org.scalatest.FlatSpecLike.$anonfun$runTests$1(FlatSpecLike.scala:1750)
-	at org.scalatest.SuperEngine.$anonfun$runTestsInBranch$1(Engine.scala:393)
-	at scala.collection.immutable.List.foreach(List.scala:392)
-	at org.scalatest.SuperEngine.traverseSubNodes$1(Engine.scala:381)
-	at org.scalatest.SuperEngine.runTestsInBranch(Engine.scala:370)
-	at org.scalatest.SuperEngine.$anonfun$runTestsInBranch$1(Engine.scala:407)
-	at scala.collection.immutable.List.foreach(List.scala:392)
-	at org.scalatest.SuperEngine.traverseSubNodes$1(Engine.scala:381)
-	at org.scalatest.SuperEngine.runTestsInBranch(Engine.scala:376)
-	at org.scalatest.SuperEngine.runTestsImpl(Engine.scala:458)
-	at org.scalatest.FlatSpecLike.runTests(FlatSpecLike.scala:1750)
-	at org.scalatest.FlatSpecLike.runTests$(FlatSpecLike.scala:1749)
-	at org.scalatest.FlatSpec.runTests(FlatSpec.scala:1685)
-	at org.scalatest.Suite.run(Suite.scala:1124)
-	at org.scalatest.Suite.run$(Suite.scala:1106)
-	at org.scalatest.FlatSpec.org$scalatest$FlatSpecLike$$super$run(FlatSpec.scala:1685)
-	at org.scalatest.FlatSpecLike.$anonfun$run$1(FlatSpecLike.scala:1795)
-	at org.scalatest.SuperEngine.runImpl(Engine.scala:518)
-	at org.scalatest.FlatSpecLike.run(FlatSpecLike.scala:1795)
-	at org.scalatest.FlatSpecLike.run$(FlatSpecLike.scala:1793)
-	at org.scalatest.FlatSpec.run(FlatSpec.scala:1685)
-	at org.scalatest.tools.Framework.org$scalatest$tools$Framework$$runSuite(Framework.scala:317)
-	at org.scalatest.tools.Framework$ScalaTestTask.execute(Framework.scala:510)
-	at sbt.TestRunner.runTest$1(TestFramework.scala:113)
-	at sbt.TestRunner.run(TestFramework.scala:124)
-	at sbt.TestFramework$$anon$2$$anonfun$$lessinit$greater$1.$anonfun$apply$1(TestFramework.scala:282)
-	at sbt.TestFramework$.sbt$TestFramework$$withContextLoader(TestFramework.scala:246)
-	at sbt.TestFramework$$anon$2$$anonfun$$lessinit$greater$1.apply(TestFramework.scala:282)
-	at sbt.TestFramework$$anon$2$$anonfun$$lessinit$greater$1.apply(TestFramework.scala:282)
-	at sbt.TestFunction.apply(TestFramework.scala:294)
-	at sbt.Tests$.$anonfun$toTask$1(Tests.scala:309)
-	at sbt.std.Transform$$anon$3.$anonfun$apply$2(System.scala:46)
-	at sbt.std.Transform$$anon$4.work(System.scala:67)
-	at sbt.Execute.$anonfun$submit$2(Execute.scala:269)
-	at sbt.internal.util.ErrorHandling$.wideConvert(ErrorHandling.scala:16)
-	at sbt.Execute.work(Execute.scala:278)
-	at sbt.Execute.$anonfun$submit$1(Execute.scala:269)
-	at sbt.ConcurrentRestrictions$$anon$4.$anonfun$submitValid$1(ConcurrentRestrictions.scala:178)
-	at sbt.CompletionService$$anon$2.call(CompletionService.scala:37)
-	at java.util.concurrent.FutureTask.run(Unknown Source)
-	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
-	at java.util.concurrent.FutureTask.run(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-</failure>
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="OUTER PRODUCT: should calculate outer product of two vectors (mul)" time="0.0">
+                                                 
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="OUTER PRODUCT: should calculate outer product of two vectors (flr)" time="0.0">
+                                                 
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="REDUCTIVE OPERATOR: should reduce columns of matrix with rdc" time="0.001">
+                                                 
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="REDUCTIVE OPERATOR: should reduce columns of matrix with rdc then operate on result" time="0.0">
+                                                 
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="BRACKETS: should do multiple brackets" time="0.0">
+                                                 
+                                               </testcase><testcase classname="org.mq.interpret.TokensTests" name="BRACKETS: should do nested brackets" time="0.0">
+                                                 
                                                </testcase>
                      <system-out><![CDATA[]]></system-out>
                      <system-err><![CDATA[]]></system-err>
