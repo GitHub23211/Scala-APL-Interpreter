@@ -285,6 +285,17 @@ class TokensTests extends FlatSpec with Matchers {
                 AMatrix(Array(Array(-4.0, -3.0, -1.0), Array(-1.0, -100.5, -232.2), Array(92.3, 100.0, -5.0)))))
   }
 
+  it should "floor a number" in {
+    assert(same(exec(List(AOperator("flr"), ANumber(2.3))), ANumber(2.0)))
+  }
+
+  it should "ceil a number" in {
+    assert(same(exec(List(AOperator("ceil"), ANumber(2.3))), ANumber(3.0)))
+  }
+  
+  it should "return abs value" in {
+    assert(same(exec(List(AOperator("|"), ANumber(-2.3))), ANumber(2.3)))
+  }
 
   "DYADIC FUNCTION TEST CASES" should "handle summing two matricies" in {
     assert(same(exec(List(AMatrix(Array(Array(1.0, 2.0, 3.0), Array(1.0, 2.0, 3.0), Array(1.0, 2.0, 3.0))), AOperator("+"), 
@@ -312,6 +323,11 @@ class TokensTests extends FlatSpec with Matchers {
                 AMatrix(Array(Array(4.0, 7.0, 1.0), Array(9.0, 4.0, 7.0)))))
   }
 
+  it should "rho Vector rho Vector" in {
+    assert(same(exec(List(AOperator("rho"), AVector(Array(2.0, 3.0)), AOperator("rho"), AVector(Array(4.0, 7.0, 1.0, 9.0)))),
+                AVector(Array(2.0, 3.0))))
+  }
+
   "OPERATORS:" should "reduce a vector with -" in {
     assert(same(exec(List(AOperator("-"), AOperator("/"),
                           AVector(Array(3.0, 1.0, 4.0, 1.0, 5.0)))), 
@@ -336,30 +352,6 @@ class TokensTests extends FlatSpec with Matchers {
                 AVector(Array(2.0/3.0, 4.0/2.0))))
   }
 
-
-  "INNER PRODUCT:" should "calculate inner product then add to matrix" in {
-    assert(same(exec(List(AMatrix(Array(Array(2.0, 3.0), Array(4.0, 1.0))), AOperator("+"), AMatrix(Array(Array(2.0, 3.0), Array(4.0, 1.0))), 
-                          AOperator("+"), AOperator("."), AOperator("mul"),
-                          AMatrix(Array(Array(1.0, 5.0), Array(2.0, 2.0))))), 
-                AMatrix(Array(Array(10.0, 19.0), Array(10.0, 23.0)))))
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   it should "do take with negative number" in {
     assert(same(exec(List(ANumber(-2.0), AOperator("take"),
                           AVector(Array(3.0, 1.0, 4.0, 1.0, 5.0)), 
@@ -381,14 +373,6 @@ class TokensTests extends FlatSpec with Matchers {
                 AVector(Array(3.0, 1.0, 4.0))))
   }
 
-  it should "floor a number" in {
-    assert(same(exec(List(AOperator("flr"), ANumber(2.3))), ANumber(2.0)))
-  }
-
-  it should "ceil a number" in {
-    assert(same(exec(List(AOperator("ceil"), ANumber(2.3))), ANumber(3.0)))
-  }
-
   it should "find minimum" in {
     assert(same(exec(List(ANumber(500.0), AOperator("flr"), ANumber(2.3))), ANumber(2.3)))
   }
@@ -397,7 +381,35 @@ class TokensTests extends FlatSpec with Matchers {
     assert(same(exec(List(ANumber(500.0), AOperator("ceil"), ANumber(2.3))), ANumber(500.0)))
   }
 
-  it should "return abs value" in {
-    assert(same(exec(List(AOperator("|"), ANumber(-2.3))), ANumber(2.3)))
+
+  "INNER PRODUCT:" should "calculate inner product then add to matrix" in {
+    assert(same(exec(List(AMatrix(Array(Array(2.0, 3.0), Array(4.0, 1.0))), AOperator("+"), AMatrix(Array(Array(2.0, 3.0), Array(4.0, 1.0))), 
+                          AOperator("+"), AOperator("."), AOperator("mul"),
+                          AMatrix(Array(Array(1.0, 5.0), Array(2.0, 2.0))))), 
+                AMatrix(Array(Array(10.0, 19.0), Array(10.0, 23.0)))))
+  }
+
+  "OUTER PRODUCT:" should "calculate inner product then add to matrix" in {
+    assert(same(exec(List(AMatrix(Array(Array(2.0, 3.0), Array(4.0, 1.0))), AOperator("+"), AMatrix(Array(Array(2.0, 3.0), Array(4.0, 1.0))), 
+                          AOperator("+"), AOperator("."), AOperator("mul"),
+                          AMatrix(Array(Array(1.0, 5.0), Array(2.0, 2.0))))), 
+                AMatrix(Array(Array(10.0, 19.0), Array(10.0, 23.0)))))
+  }
+
+  "REDUCTIVE OPERATOR:" should "reduce columns of matrix with rdc" in {
+    assert(same(exec(List(AOperator("+"), AOperator("rdc"), AVector(Array(2.0, 2.0)), AOperator("rho"), AVector(Array(1.0, 2.0, 3.0, 4.0)))), 
+                AVector(Array(4.0, 6.0))))
+  }
+
+  "BRACKETS:" should "do multiple brackets" in {
+    assert(same(exec(List(ANumber(5), AOperator("+"), LRBrac, ANumber(10.3), AOperator("flr"), ANumber(2), RRBrac, AOperator("+"),
+                          LRBrac, AOperator("iota"), ASymbol("x"), Assign, ANumber(4.0), RRBrac, AOperator("out"), AOperator("."), AOperator("-"),
+                          AVector(Array(1.0, 2.0, 3.0, 4.0)))), 
+                AMatrix(Array(Array(7.0, 6.0, 5.0, 4.0), Array(8.0, 7.0, 6.0, 5.0), Array(9.0, 8.0, 7.0, 6.0), Array(10.0, 9.0, 8.0, 7.0)))))
+  }
+
+  it should "do nested brackets" in {
+    assert(same(exec(List(LRBrac, LRBrac, ASymbol("x"), Assign, ANumber(3.0), RRBrac, AOperator("+"), ANumber(1.0), RRBrac, AOperator("rho"), ANumber(7.0))), 
+                AVector(Array(7.0, 7.0, 7.0, 7.0))))
   }
 }

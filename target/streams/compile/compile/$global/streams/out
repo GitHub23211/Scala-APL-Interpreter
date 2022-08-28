@@ -5,51 +5,47 @@
 [0m[[0m[33mwarn[0m] [0m[0m      case _ => err("unknown token")[0m
 [0m[[0m[33mwarn[0m] [0m[0m                   ^[0m
 [0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:103:12: patterns after a variable pattern cannot match (SLS 8.1.1)[0m
-[0m[[0m[33mwarn[0m] [0m[0m      case l => Some(l map (x => strToAObj(x)))[0m
+[0m[[0m[33mwarn[0m] [0m[0m      case l => {[0m
 [0m[[0m[33mwarn[0m] [0m[0m           ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:104:17: unreachable code due to variable pattern 'l' on line 103[0m
+[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:133:17: unreachable code due to variable pattern 'l' on line 103[0m
 [0m[[0m[33mwarn[0m] [0m[0m      case _ => None[0m
 [0m[[0m[33mwarn[0m] [0m[0m                ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:300:5: Exhaustivity analysis reached max recursion depth, not all missing cases are reported.[0m
-[0m[[0m[33mwarn[0m] [0m[0m(Please try with scalac -Ypatmat-exhaust-depth 40 or -Ypatmat-exhaust-depth off.)[0m
+[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:327:5: match may not be exhaustive.[0m
+[0m[[0m[33mwarn[0m] [0m[0mIt would fail on the following inputs: (AMatrix(_), "+"), (AMatrix(_), "-"), (AMatrix(_), "mul"), (AMatrix(_), String()), (AMatrix(_), _), (ANumber(_), "+"), (ANumber(_), "-"), (ANumber(_), "mul"), (ANumber(_), String()), (ANumber(_), _), (AOperator("+"), "+"), (AOperator("+"), "-"), (AOperator("+"), String()), (AOperator("+"), _), (AOperator("out"), _), (AOperator(String()), _), (AOperator(_), "+"), (AOperator(_), "-"), (AOperator(_), "mul"), (AOperator(_), String()), (AOperator(_), _), (ASymbol(_), "+"), (ASymbol(_), "-"), (ASymbol(_), "mul"), (ASymbol(_), String()), (ASymbol(_), _), (AVector(_), "+"), (AVector(_), "-"), (AVector(_), "mul"), (AVector(_), String()), (AVector(_), _), (Assign, "+"), (Assign, "-"), (Assign, "mul"), (Assign, String()), (Assign, _), (LRBrac, "+"), (LRBrac, "-"), (LRBrac, "mul"), (LRBrac, String()), (LRBrac, _), (RRBrac, "+"), (RRBrac, "-"), (RRBrac, "mul"), (RRBrac, String()), (RRBrac, _)[0m
 [0m[[0m[33mwarn[0m] [0m[0m    (g, f) match {[0m
 [0m[[0m[33mwarn[0m] [0m[0m    ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:309:5: Exhaustivity analysis reached max recursion depth, not all missing cases are reported.[0m
+[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:362:5: Exhaustivity analysis reached max recursion depth, not all missing cases are reported.[0m
+[0m[[0m[33mwarn[0m] [0m[0m(Please try with scalac -Ypatmat-exhaust-depth 40 or -Ypatmat-exhaust-depth off.)[0m
+[0m[[0m[33mwarn[0m] [0m[0m    (rdc, a) match {[0m
+[0m[[0m[33mwarn[0m] [0m[0m    ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:373:5: Exhaustivity analysis reached max recursion depth, not all missing cases are reported.[0m
 [0m[[0m[33mwarn[0m] [0m[0m(Please try with scalac -Ypatmat-exhaust-depth 40 or -Ypatmat-exhaust-depth off.)[0m
 [0m[[0m[33mwarn[0m] [0m[0m    (a, b) match {[0m
 [0m[[0m[33mwarn[0m] [0m[0m    ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:314:5: Exhaustivity analysis reached max recursion depth, not all missing cases are reported.[0m
+[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:378:5: Exhaustivity analysis reached max recursion depth, not all missing cases are reported.[0m
 [0m[[0m[33mwarn[0m] [0m[0m(Please try with scalac -Ypatmat-exhaust-depth 40 or -Ypatmat-exhaust-depth off.)[0m
 [0m[[0m[33mwarn[0m] [0m[0m    (a, b) match {[0m
 [0m[[0m[33mwarn[0m] [0m[0m    ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:345:5: match may not be exhaustive.[0m
-[0m[[0m[33mwarn[0m] [0m[0mIt would fail on the following inputs: ANumber(_), AOperator(_), ASymbol(_), Assign, LRBrac, RRBrac[0m
-[0m[[0m[33mwarn[0m] [0m[0m    a match {[0m
-[0m[[0m[33mwarn[0m] [0m[0m    ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:379:5: match may not be exhaustive.[0m
-[0m[[0m[33mwarn[0m] [0m[0mIt would fail on the following inputs: AMatrix(_), AOperator(_), ASymbol(_), Assign, LRBrac, RRBrac[0m
-[0m[[0m[33mwarn[0m] [0m[0m    a match {[0m
-[0m[[0m[33mwarn[0m] [0m[0m    ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:392:5: match may not be exhaustive.[0m
+[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:418:5: match may not be exhaustive.[0m
 [0m[[0m[33mwarn[0m] [0m[0mIt would fail on the following inputs: AOperator(_), ASymbol(_), Assign, LRBrac, RRBrac[0m
 [0m[[0m[33mwarn[0m] [0m[0m    a match {[0m
 [0m[[0m[33mwarn[0m] [0m[0m    ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:399:5: Exhaustivity analysis reached max recursion depth, not all missing cases are reported.[0m
+[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:425:5: Exhaustivity analysis reached max recursion depth, not all missing cases are reported.[0m
 [0m[[0m[33mwarn[0m] [0m[0m(Please try with scalac -Ypatmat-exhaust-depth 40 or -Ypatmat-exhaust-depth off.)[0m
 [0m[[0m[33mwarn[0m] [0m[0m    (a, b) match {[0m
 [0m[[0m[33mwarn[0m] [0m[0m    ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:429:5: Exhaustivity analysis reached max recursion depth, not all missing cases are reported.[0m
+[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:455:5: Exhaustivity analysis reached max recursion depth, not all missing cases are reported.[0m
 [0m[[0m[33mwarn[0m] [0m[0m(Please try with scalac -Ypatmat-exhaust-depth 40 or -Ypatmat-exhaust-depth off.)[0m
 [0m[[0m[33mwarn[0m] [0m[0m    (a, b) match {[0m
 [0m[[0m[33mwarn[0m] [0m[0m    ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:437:5: Exhaustivity analysis reached max recursion depth, not all missing cases are reported.[0m
+[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:463:5: Exhaustivity analysis reached max recursion depth, not all missing cases are reported.[0m
 [0m[[0m[33mwarn[0m] [0m[0m(Please try with scalac -Ypatmat-exhaust-depth 40 or -Ypatmat-exhaust-depth off.)[0m
 [0m[[0m[33mwarn[0m] [0m[0m    (a, b) match {[0m
 [0m[[0m[33mwarn[0m] [0m[0m    ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:387:37: method to in trait FractionalProxy is deprecated (since 2.12.6): use BigDecimal range instead[0m
+[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:413:37: method to in trait FractionalProxy is deprecated (since 2.12.6): use BigDecimal range instead[0m
 [0m[[0m[33mwarn[0m] [0m[0m    case ANumber(n) => AVector((1.0 to n by 1.0).toArray)[0m
 [0m[[0m[33mwarn[0m] [0m[0m                                    ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:388:55: method to in trait FractionalProxy is deprecated (since 2.12.6): use BigDecimal range instead[0m
+[0m[[0m[33mwarn[0m] [0m[0mD:\Uni Stuff\IT\COMP3000\Assignment 1\src\main\scala\Interpret.scala:414:55: method to in trait FractionalProxy is deprecated (since 2.12.6): use BigDecimal range instead[0m
 [0m[[0m[33mwarn[0m] [0m[0m    case AVector(v) if(v.length == 1) => AVector((1.0 to v.head by 1.0).toArray)[0m
 [0m[[0m[33mwarn[0m] [0m[0m                                                      ^[0m
-[0m[[0m[33mwarn[0m] [0m[0m15 warnings found[0m
+[0m[[0m[33mwarn[0m] [0m[0m14 warnings found[0m
