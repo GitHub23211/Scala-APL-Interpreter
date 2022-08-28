@@ -76,6 +76,8 @@
 [0m[[0m[0minfo[0m] [0m[0m[32m- should calculate inner product (mul then +) then add to matrix[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should calculate inner product (+ then mul) then add to matrix[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should calculate inner product (ceil then flr) then add to matrix[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should calculate inner product (mul then +) of a vector and matrix[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should calculate inner product (flr then mul) of a vector and matrix[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mOUTER PRODUCT:[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should calculate outer product of two vectors (mul)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should calculate outer product of two vectors (flr)[0m[0m

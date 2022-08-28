@@ -73,7 +73,7 @@ object Interpret {
   def areEqual(d:Double, e:Double):Boolean =
             d == 0 && e == 0 || (d - e).abs < 0.0001 * (d.abs + e.abs)
 
-  val pat = "[a-zA-Z]+|(_)?[0-9]+|[^a-zA-Z0-9 ()]+|[()]+".r
+  val pat = "[a-zA-Z]+|(_)?[0-9]+|[^a-zA-Z0-9 ().]+|[().]+".r
 
   def matchPat(line:String):List[String] =
                               pat.findAllIn(line.toLowerCase).toList
@@ -327,6 +327,7 @@ object Interpret {
       case (AOperator("+"), "mul") => innerProductOp(dyadicMul, reductivePlus, leftArg, a)
       case (AOperator("mul"), "+") => innerProductOp(dyadicPlus, reductiveMul, leftArg, a)
       case (AOperator("flr"), "+") => innerProductOp(dyadicPlus, reductiveFlr, leftArg, a)
+      case (AOperator("flr"), "mul") => innerProductOp(dyadicMul, reductiveFlr, leftArg, a)
       case (AOperator("ceil"), "mul") => innerProductOp(dyadicMul, reductiveCeil, leftArg, a)
       case (AOperator("mul"), "flr") => innerProductOp(dyadicFlr, reductiveMul, leftArg, a)
       case (AOperator("flr"), "ceil") => innerProductOp(dyadicCeil, reductiveFlr, leftArg, a)
@@ -378,6 +379,11 @@ object Interpret {
 
   def innerProductOp(g:(Double, Double) => Double, f:Array[Double] => Double, a:AObject, b:AObject):AObject =
     (a, b) match {
+      case (AVector(v1), AVector(v2)) => AVector(v1.map(a => f(v2.map(b => g(a, b)).toArray)).toArray)
+      case (AVector(v), AMatrix(m)) => {
+        val newM = (0 until m.length).map(i => (0 until m(i).length).map(j => m(j)(i)).toArray).toArray;
+        AVector(newM.map(vm => f((0 until vm.length).map(i => g(vm(i), v(i))).toArray)).toArray)
+      }
       case (AMatrix(m1), AMatrix(m2)) => AMatrix((0 until m1.length).map(k => (0 until m1.length).map(i => f((0 until m1(i).length).map(j => g(m1(k)(j), m2(j)(i))).toArray)).toArray).toArray)
     }
   
